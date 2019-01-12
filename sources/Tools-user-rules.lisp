@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √ñrjan Sandred, IRCAM 1999
 ;
 ;Update version 1.3 19/8 2002 (Stockholm)
 ;
@@ -9,7 +9,7 @@
 ;  RC::get-cell-other-layer, RC::get-cell-any-layer, RC::get-rhythm-other-layer, RC::get-rhythm-any-layer, 
 ;  RC::get-cell-at-time
 ;
- 
+
 (in-package RC)
 
 (defun get-this-cell-from-svar (x)
@@ -82,11 +82,11 @@
 <x> is the current variable. It should be connected to the second input 
 inside a user rule patch.
 --------------------------
-Hämta innehållet i den aktuella instancierade variabeln (d.v.s. den 
+H√§mta inneh√•llet i den aktuella instancierade variabeln (d.v.s. den 
 aktuella rytmcellen eller taktartssignaturen). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -110,15 +110,15 @@ input inside a user rule patch.
 by the search engine). It should be connected to the first input inside 
 a user rule patch.
 --------------------------
-Hämta innehållet i den instancierade variabeln i samma skikt som den 
-aktuella instancierade variabeln, men före denna (d.v.s. en rytmcell 
+H√§mta inneh√•llet i den instancierade variabeln i samma skikt som den 
+aktuella instancierade variabeln, men f√∂re denna (d.v.s. en rytmcell 
 eller taktartssignatur). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -142,15 +142,15 @@ input inside a user rule patch.
 by the search engine). It should be connected to the first input inside 
 a user rule patch.
 --------------------------
-Hämta innehållet i den instancierade variabeln i samma skikt som den 
-aktuella instancierade variabeln, men två före denna (d.v.s. en rytmcell 
+H√§mta inneh√•llet i den instancierade variabeln i samma skikt som den 
+aktuella instancierade variabeln, men tv√• f√∂re denna (d.v.s. en rytmcell 
 eller taktartssignatur). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -174,15 +174,15 @@ inside a user rule patch.
 by the search engine). It should be connected to the first input inside 
 a user rule patch.
 --------------------------
-Hämta innehållet i den instancierade variabeln i samma skikt som den 
-aktuella instancierade variabeln, men tre före denna (d.v.s. en rytmcell 
+H√§mta inneh√•llet i den instancierade variabeln i samma skikt som den 
+aktuella instancierade variabeln, men tre f√∂re denna (d.v.s. en rytmcell 
 eller taktartssignatur). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -204,21 +204,43 @@ inside a user rule patch.
 by the search engine). It should be connected to the first input inside 
 a user rule patch.
 --------------------------
-Hämta innehållet av alla instancierade variabler i samma skikt som den 
+H√§mta inneh√•llet av alla instancierade variabler i samma skikt som den 
 aktuella instancierade variabeln (d.v.s. en lista med alla rytmceller 
-eller taktartssignaturer). Den aktuella instacierade variabeln är inte 
+eller taktartssignaturer). Den aktuella instacierade variabeln √§r inte 
 inklurderad. 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
 "
    :icon 367
    
    (get-all-variables-in-this-layer indexx x)
    )
+
+
+(om::defmethod! RC::pause? ((x t))
+   :initvals '(nil)
+   :indoc '("search-var")
+   :doc "Gives true if the current instaciated variable is a rhythm cell, and if the 
+cell contains longer total duration of pauses than notes.
+
+<x> is the current variable. It should be connected to the second 
+input inside a user rule patch.
+--------------------------
+Ger sannt om den aktuella instancierade variabeln √§r en rytmcell, och om dess l√§ngd till 
+st√∂rsta delen best√•r av paus.
+
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+"
+   :icon 367
+   
+   (and (typep x 'rhythmcell)
+        (< (apply '+ (get-rhythmcell x))
+           0)))
 
 
 (om::defmethod! RC::rhythmcell? ((x t))
@@ -229,10 +251,10 @@ en användardefinierad regel.
 <x> is the current variable. It should be connected to the second 
 input inside a user rule patch.
 --------------------------
-Ger sannt om den aktuella instancierade variabeln är en rytmcell.
+Ger sannt om den aktuella instancierade variabeln √§r en rytmcell.
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -248,10 +270,10 @@ inuti en patch för en användardefinierad regel.
 <x> is the current variable. It should be connected to the second 
 input inside a user rule patch.
 --------------------------
-Ger sannt om den aktuella instancierade variabeln är en taktart.
+Ger sannt om den aktuella instancierade variabeln √§r en taktart.
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -267,10 +289,10 @@ inuti en patch för en användardefinierad regel.
 <x> is the current variable. It should be connected to the second 
 input inside a user rule patch.
 --------------------------
-Hämta numret för skiktet för den aktuella instancierade variabeln.
+H√§mta numret f√∂r skiktet f√∂r den aktuella instancierade variabeln.
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -287,11 +309,11 @@ inuti en patch för en användardefinierad regel.
 <x> is the current variable. It should be connected to the second 
 input inside a user rule patch.
 --------------------------
-Hämta längden för den aktuella instancierade variabeln (d.v.s. 
-längden för den aktuella rytmcellen eller takten).
+H√§mta l√§ngden f√∂r den aktuella instancierade variabeln (d.v.s. 
+l√§ngden f√∂r den aktuella rytmcellen eller takten).
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra 
-ingången inuti en patch för en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra 
+ing√•ngen inuti en patch f√∂r en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -307,10 +329,10 @@ ingången inuti en patch för en användardefinierad regel.
 <ev1> is one of the events to compare.
 <ev2> is the other.
 --------------------------
-Ger sannt om två celler (rytmceller eller taktartssignaturer,även siffror eller listor) är identiska.
+Ger sannt om tv√• celler (rytmceller eller taktartssignaturer,√§ven siffror eller listor) √§r identiska.
 
-<ev1> är en av händelserna att jämföra.
-<ev2> är den andra.
+<ev1> √§r en av h√§ndelserna att j√§mf√∂ra.
+<ev2> √§r den andra.
 "
    :icon 380
    
@@ -326,10 +348,10 @@ Ger sannt om två celler (rytmceller eller taktartssignaturer,även siffror eller 
 <ev1> is one of the events to compare.
 <ev2> is the other.
 --------------------------
-Ger sannt om två celler (rytmceller eller taktartssignaturer,även siffror eller listor) är olika.
+Ger sannt om tv√• celler (rytmceller eller taktartssignaturer,√§ven siffror eller listor) √§r olika.
 
-<ev1> är en av händelserna att jämföra.
-<ev2> är den andra.
+<ev1> √§r en av h√§ndelserna att j√§mf√∂ra.
+<ev2> √§r den andra.
 "
    :icon 381
    
@@ -351,15 +373,15 @@ input inside a user rule patch.
 by the search engine). It should be connected to the first input inside 
 a user rule patch.
 --------------------------
-Hämta starttiden för den aktuella instancierade variabeln.
-Tiden ges som ett bråk, motsvarande det totala notlängdsvärdet från 
+H√§mta starttiden f√∂r den aktuella instancierade variabeln.
+Tiden ges som ett br√•k, motsvarande det totala notl√§ngdsv√§rdet fr√•n 
 sekvensens start.
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
 "
    :icon 367
    
@@ -387,17 +409,17 @@ by the search engine). It should be connected to the first input
 inside a user rule patch.
 <layer> is the layer number for the layer where the variable exist.
 --------------------------
-Hämta innehållet i den instancierade variabeln i ett annat skikt men 
-i samma stämma som den aktuella instancierade variabeln, som finns på 
+H√§mta inneh√•llet i den instancierade variabeln i ett annat skikt men 
+i samma st√§mma som den aktuella instancierade variabeln, som finns p√• 
 den aktuella instancierade variabelns starttid (d.v.s. en rytmcell 
 eller taktartssignatur). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt 
-av sökmotorn). Den ska ansutas till den första ingången inuti en patch 
-för en användardefinierad regel.
-<layer> är numret för det skikt där variabeln finns.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt 
+av s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch 
+f√∂r en anv√§ndardefinierad regel.
+<layer> √§r numret f√∂r det skikt d√§r variabeln finns.
 "
    :icon 367
    
@@ -430,17 +452,17 @@ first input inside a user rule patch.
 <layer> is the layer number for the layer where the variable exist.
 <voice> is the voice number for the voice where the variable exist.
 --------------------------
-Hämta innehållet i den instancierade variabeln i vilket skikt 
-och vilken stämma som helst som finns på den aktuella instancierade 
+H√§mta inneh√•llet i den instancierade variabeln i vilket skikt 
+och vilken st√§mma som helst som finns p√• den aktuella instancierade 
 variabelns starttid (d.v.s. en rytmcell eller taktartssignatur). 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra 
-ingången inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används 
-internt av sökmotorn). Den ska ansutas till den första ingången 
-inuti en patch för en användardefinierad regel.
-<layer> är numret för det skikt där variabeln finns.
-<voice> är numret för det stämma där variabeln finns.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra 
+ing√•ngen inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds 
+internt av s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<layer> √§r numret f√∂r det skikt d√§r variabeln finns.
+<voice> √§r numret f√∂r det st√§mma d√§r variabeln finns.
 "
    :icon 367
    
@@ -472,18 +494,18 @@ by the search engine). It should be connected to the first input inside
 a user rule patch.
 <layer> is the layer number for the layer where the rhythm is.
 --------------------------
-Hämta rytmen i ett annat skikt men i samma stämma som den aktuella 
-instancierade variabeln, som förekommer under den aktuella instancierade 
-variabelns tidsrymd. Detta är inte samma sak som en rytmcell, eftersom 
-delar av en eller flera celler kan förekomma inom tidsrymden. Om ingen 
-rytm finns ännu returneras nil. 
+H√§mta rytmen i ett annat skikt men i samma st√§mma som den aktuella 
+instancierade variabeln, som f√∂rekommer under den aktuella instancierade 
+variabelns tidsrymd. Detta √§r inte samma sak som en rytmcell, eftersom 
+delar av en eller flera celler kan f√∂rekomma inom tidsrymden. Om ingen 
+rytm finns √§nnu returneras nil. 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
-<layer> är numret för det skikt där rytmen finns.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
+<layer> √§r numret f√∂r det skikt d√§r rytmen finns.
 "
   :icon 367
   
@@ -514,18 +536,18 @@ a user rule patch.
 <layer> is the layer number for the layer where the rhythm is.
 <voice> is the voice number for the voice where the rhythm is.
 --------------------------
-Hämta en rytm som förekommer under den aktuella instancierade variabelns 
-tidsrymd i vilket skikt och vilken stämma som helst. Detta är inte samma 
-sak som en rytmcell, eftersom delar av en eller flera celler kan förekomma 
-inom tidsrymden. Om ingen rytm finns ännu returneras nil. 
+H√§mta en rytm som f√∂rekommer under den aktuella instancierade variabelns 
+tidsrymd i vilket skikt och vilken st√§mma som helst. Detta √§r inte samma 
+sak som en rytmcell, eftersom delar av en eller flera celler kan f√∂rekomma 
+inom tidsrymden. Om ingen rytm finns √§nnu returneras nil. 
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
-<indexx> är index för den aktuella variabeln (index används internt av 
-sökmotorn). Den ska ansutas till den första ingången inuti en patch för 
-en användardefinierad regel.
-<layer> är numret för det skikt där rytmen finns.
-<voice> är numret för det stämma där rytmen finns.
+<x> √§r den aktuella variabeln. Den ska ansutas till den andra ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds internt av 
+s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen inuti en patch f√∂r 
+en anv√§ndardefinierad regel.
+<layer> √§r numret f√∂r det skikt d√§r rytmen finns.
+<voice> √§r numret f√∂r det st√§mma d√§r rytmen finns.
 "
   :icon 367
   
@@ -552,15 +574,15 @@ first input inside a user rule patch.
 <layer> is the layer number for the layer.
 <voice> is the voice number for the voice where the layer is.
 --------------------------
-Hämta innehållet i alla instancierade variabler i vilket skikt 
-och vilken stämma som helst. INGEN SKILLNAD GÖRS MELLAN 
+H√§mta inneh√•llet i alla instancierade variabler i vilket skikt 
+och vilken st√§mma som helst. INGEN SKILLNAD G√ñRS MELLAN 
 PAUSER OCH NOTER I RYTMCELLER.
 
-<indexx> är index för den aktuella variabeln (index används 
-internt av sökmotorn). Den ska ansutas till den första ingången 
-inuti en patch för en användardefinierad regel.
-<layer> är numret för skiktet.
-<voice> är numret för det stämma där skiktet finns.
+<indexx> √§r index f√∂r den aktuella variabeln (index anv√§nds 
+internt av s√∂kmotorn). Den ska ansutas till den f√∂rsta ing√•ngen 
+inuti en patch f√∂r en anv√§ndardefinierad regel.
+<layer> √§r numret f√∂r skiktet.
+<voice> √§r numret f√∂r det st√§mma d√§r skiktet finns.
 "
   :icon 367
   

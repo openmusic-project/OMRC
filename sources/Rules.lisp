@@ -10,7 +10,7 @@
 (in-package RC)
 
 ;INTERFACE FOR INPUT OF RULES TO THE SEARCHENGINE
- 
+
 ;**********PMC************
 
 (defun rule-in-voice-pmc (voice rule)
@@ -414,6 +414,70 @@
          ))))
 
 
+;New function - hierarchy where pauses are ignored.
+
+
+(defun remove-pauses1 (proportion-list)
+  (let ((result nil))
+    (loop while proportion-list
+          do (progn (if (and result
+                             (< (first proportion-list) 0))
+                      (setf (car (last result)) (+ (abs (car (last result))) (abs (car proportion-list))))
+                      (setf result (append result (list (car proportion-list)))))
+                    (pop proportion-list)))
+    result))
+
+(defun remove-pauses2 (onset-times)
+  (remove nil (mapcar #'(lambda (timepoint) (if (< timepoint 0) nil timepoint)) onset-times)))
+
+
+
+(defun hierarchy-within-layer-rule-ignore-pauses (layerhigh layerlow) 
+  
+  (list
+   #'(lambda (indexx x)
+       (let* ((this-layer-nr (get-layer-nr x))
+              (this-voice-nr (get-voice-nr x))
+              (start-this-cell (1+ (get-stop-time this-voice-nr this-layer-nr (1- indexx))))
+              this-global-cell
+              stop-this-cell
+              other-layer-onset-times)
+         
+         (cond ((= this-layer-nr layerlow)           ;check hierarchy towards higher layer
+                (setf other-layer-onset-times (remove-pauses2 (om::om* (om::om+ 1 (get-one-rhythmlayer this-voice-nr layerhigh (1- indexx)))
+                                                                       (get-one-layer-pauseflags this-voice-nr layerhigh (1- indexx))
+                                                                       )))
+                (setf this-global-cell-with-pauses (om::om* (mapcar #'(lambda (x) (+ start-this-cell x)) (get-local-onset x))
+                                                            (get-pauses x)))
+                (if (< (first this-global-cell-with-pauses) 0)
+                  (setf this-global-cell (cdr (remove-pauses2 this-global-cell-with-pauses)))
+                  (setf this-global-cell (remove-pauses2 this-global-cell-with-pauses)))
+                
+                (setf stop-this-cell (+ start-this-cell (get-variabledur x)))
+                (subsetp 
+                 (fast-band-filter2 start-this-cell stop-this-cell other-layer-onset-times)
+                 this-global-cell)
+                )
+               ((= this-layer-nr layerhigh)          ;check hierarchy towards lower layer
+                (setf other-layer-onset-times (remove-pauses2 (om::om* (om::om+ 1 (get-one-rhythmlayer this-voice-nr layerlow (1- indexx)))
+                                                                       (append (get-one-layer-pauseflags this-voice-nr layerlow (1- indexx))
+                                                                               '(1)))))
+                (setf this-global-cell-with-pauses (om::om* (mapcar #'(lambda (x) (+ start-this-cell x)) (get-local-onset x))
+                                                            (get-pauses x)))
+                (if (< (first this-global-cell-with-pauses) 0)
+                  (setf this-global-cell (cdr (remove-pauses2 this-global-cell-with-pauses)))
+                  (setf this-global-cell (remove-pauses2 this-global-cell-with-pauses)))
+                
+                (subsetp 
+                 (fast-lp-filter2 (1+ (get-stop-time this-voice-nr layerlow (1- indexx))) this-global-cell)
+                 other-layer-onset-times)
+                )
+               (t t))                                ;the layer the variable belongs to is not included in this rule: bypass rule
+         ))))
+
+
+
+
 (defun hierarchy-between-layers-rule (layerhigh layerlow voicehigh voicelow) 
   
   (list
@@ -445,9 +509,57 @@
                (t t))                                ;the layer the variable belongs to is not included in this rule: bypass rule
          ))))
 
+
+(defun hierarchy-between-layers-rule-ignore-pauses (layerhigh layerlow voicehigh voicelow) 
+  
+  (list
+   #'(lambda (indexx x)
+       (let* ((this-layer-nr (get-layer-nr x))
+              (this-voice-nr (get-voice-nr x))
+              (start-this-cell (1+ (get-stop-time this-voice-nr this-layer-nr (1- indexx))))
+              this-global-cell
+              stop-this-cell
+              other-layer-onset-times)
+         
+         (cond ((and (= this-layer-nr layerlow)
+                     (= this-voice-nr voicelow))  ;check hierarchy towards higher layer
+                (setf other-layer-onset-times (remove-pauses2 (om::om* (om::om+ 1 (get-one-rhythmlayer voicehigh layerhigh (1- indexx)))
+                                                                       (get-one-layer-pauseflags voicehigh layerhigh (1- indexx))
+                                                                       )))
+                (setf this-global-cell-with-pauses (om::om* (mapcar #'(lambda (x) (+ start-this-cell x)) (get-local-onset x))
+                                                            (get-pauses x)))
+                (if (< (first this-global-cell-with-pauses) 0)
+                  (setf this-global-cell (cdr (remove-pauses2 this-global-cell-with-pauses)))
+                  (setf this-global-cell (remove-pauses2 this-global-cell-with-pauses)))
+                
+                (setf stop-this-cell (+ start-this-cell (get-variabledur x)))
+                (subsetp 
+                 (fast-band-filter2 start-this-cell stop-this-cell other-layer-onset-times)
+                 this-global-cell)
+                )
+               ((and (= this-layer-nr layerhigh)
+                     (= this-voice-nr voicehigh))          ;check hierarchy towards lower layer
+                (setf other-layer-onset-times (remove-pauses2 (om::om* (om::om+ 1 (get-one-rhythmlayer voicelow layerlow (1- indexx)))
+                                                                       (append (get-one-layer-pauseflags voicelow layerlow (1- indexx))
+                                                                               '(1)))))
+                (setf this-global-cell-with-pauses (om::om* (mapcar #'(lambda (x) (+ start-this-cell x)) (get-local-onset x))
+                                                            (get-pauses x)))
+                (if (< (first this-global-cell-with-pauses) 0)
+                  (setf this-global-cell (cdr (remove-pauses2 this-global-cell-with-pauses)))
+                  (setf this-global-cell (remove-pauses2 this-global-cell-with-pauses)))
+                
+                (subsetp 
+                 (fast-lp-filter2 (1+ (get-stop-time this-voice-nr layerlow (1- indexx))) this-global-cell)
+                 other-layer-onset-times)
+                )
+               (t t))                                ;the layer the variable belongs to is not included in this rule: bypass rule
+         ))))
+
+
+
 ;*****************HIEARARCHY to cellstarts rule
 
-
+;OLD
 (defun hierarchy-to-cellstart-within-layer-rule (layerhigh layerlow) 
   
   (list
@@ -486,6 +598,55 @@
                 )
                (t t)) ;the layer the variable belongs to is not included in this rule: bypass rule
          ))))
+
+
+;;;NEW
+
+
+(defun hierarchy-to-cellstart-within-layer-rule (layerhigh layerlow) 
+  
+  (list
+   #'(lambda (indexx x)
+       (let* ((this-layer-nr (get-layer-nr x))
+              (this-voice-nr (get-voice-nr x))
+              (start-this-cell (get-stop-time this-voice-nr this-layer-nr (1- indexx)))
+              this-global-cell
+              stop-this-cell
+              other-layer-onset-times
+              other-layer-windowed-onset-times
+              other-layer-cellstarts
+              stop-other-layer
+              this-global-cell-windowed)
+         
+         (cond ((= this-layer-nr layerlow)           ;check hierarchy towards higher layer
+                (setf other-layer-onset-times (get-one-rhythmlayer this-voice-nr layerhigh (1- indexx)))
+                (setf stop-this-cell (+ start-this-cell (get-variabledur x)))
+                (setf other-layer-windowed-onset-times 
+                      (reverse (fast-band-filter start-this-cell stop-this-cell other-layer-onset-times)))
+
+                ;(print (list start-this-cell other-layer-onset-times other-layer-windowed-onset-times))
+                (if other-layer-windowed-onset-times
+                         
+                  (and 
+                   (= start-this-cell (car other-layer-windowed-onset-times))
+                   (or (not (cdr other-layer-windowed-onset-times))
+                       (= (cadr other-layer-windowed-onset-times)
+                          stop-this-cell)))
+                  t)
+                )
+               ((= this-layer-nr layerhigh)          ;check hierarchy towards lower layer
+                (setf this-global-cell (mapcar #'(lambda (x) (+ start-this-cell x)) (get-local-onset x)))
+                (setf stop-other-layer (get-stop-time this-voice-nr layerlow (1- indexx)))
+                (setf this-global-cell-windowed 
+                      (fast-lp-filter stop-other-layer this-global-cell))
+                (setf other-layer-cellstarts (append (get-all-cell-startpoints-in-one-layer this-voice-nr layerlow (1- indexx))
+                                                     (list stop-other-layer)))
+                (subsetp this-global-cell-windowed other-layer-cellstarts)
+
+                )
+               (t t)) ;the layer the variable belongs to is not included in this rule: bypass rule
+         ))))
+
 
 
 (defun hierarchy-to-cellstart-between-layers-rule (layerhigh layerlow voicehigh voicelow) 
@@ -825,6 +986,35 @@
            t) ;the layer the variable belongs to is not included in this rule: bypass rule
          ))))
 
+;;;;NEW canon rule
+(defun canon-rule-wpauses-other-tempo (layercomes layerdux offset factor) 
+  
+  (list
+   #'(lambda (indexx x)
+       (let ((this-layer-nr (get-layer-nr x)))
+         
+         (if (= this-layer-nr layercomes)
+           (let* ((this-voice-nr (get-voice-nr x))
+                  (start-this-cell (get-stop-time this-voice-nr this-layer-nr (1- indexx)))
+                  (stop-this-cell (+ start-this-cell (get-variabledur x)))
+                  (dux-onset-times (change-pause2note (om::om* (om::om+ 1 (get-stretched-rhythm-within-timepoints this-voice-nr layerdux (1- indexx) 
+                                                                                                                  (- start-this-cell offset) 
+                                                                                                                  (- stop-this-cell offset)
+                                                                                                                  factor))
+                                                               (append (get-stretched-pauseflags-within-timepoints this-voice-nr layerdux (1- indexx) 
+                                                                                                                   (- start-this-cell offset) 
+                                                                                                                   (- stop-this-cell offset)
+                                                                                                                   factor)
+                                                                       '(1)))
+                                                      (1+ (- stop-this-cell offset))))
+                  (comes-onset-times (om::om* (om::om+ 1 (mapcar #'(lambda (x) (- (+ start-this-cell x) offset)) (get-local-onset x)))
+                                              (append (get-pauses x) '(1)))))
+             (if (< start-this-cell offset)
+               t
+               (equal dux-onset-times comes-onset-times)))
+           t) ;the layer the variable belongs to is not included in this rule: bypass rule
+         ))))
+
 
 
 (defun global-canon-rule-wpauses (layercomes layerdux voicedux offset) 
@@ -843,6 +1033,36 @@
                                                                (append (get-pauseflags-within-timepoints voicedux layerdux (1- indexx) 
                                                                                                          (- start-this-cell offset) 
                                                                                                          (- stop-this-cell offset))
+                                                                       '(1)))
+                                                      (1+ (- stop-this-cell offset))))
+                  (comes-onset-times (om::om* (om::om+ 1 (mapcar #'(lambda (x) (- (+ start-this-cell x) offset)) (get-local-onset x)))
+                                              (append (get-pauses x) '(1)))))
+             (if (< start-this-cell offset)
+               t
+               (equal dux-onset-times comes-onset-times)))
+           t) ;the layer the variable belongs to is not included in this rule: bypass rule
+         ))))
+
+
+;;;;NEW canon rule
+(defun global-canon-rule-wpauses-other-tempo (layercomes layerdux voicedux offset factor) 
+  
+  (list
+   #'(lambda (indexx x)
+       (let ((this-layer-nr (get-layer-nr x)))
+         
+         (if (= this-layer-nr layercomes)
+           (let* ((this-voice-nr (get-voice-nr x))
+                  (start-this-cell (get-stop-time this-voice-nr this-layer-nr (1- indexx)))
+                  (stop-this-cell (+ start-this-cell (get-variabledur x)))
+                  (dux-onset-times (change-pause2note (om::om* (om::om+ 1 (get-stretched-rhythm-within-timepoints voicedux layerdux (1- indexx) 
+                                                                                                                  (- start-this-cell offset) 
+                                                                                                                  (- stop-this-cell offset)
+                                                                                                                  factor))
+                                                               (append (get-stretched-pauseflags-within-timepoints voicedux layerdux (1- indexx) 
+                                                                                                                   (- start-this-cell offset) 
+                                                                                                                   (- stop-this-cell offset)
+                                                                                                                   factor)
                                                                        '(1)))
                                                       (1+ (- stop-this-cell offset))))
                   (comes-onset-times (om::om* (om::om+ 1 (mapcar #'(lambda (x) (- (+ start-this-cell x) offset)) (get-local-onset x)))
@@ -949,10 +1169,10 @@ Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
 
 (om::defmethod! RC::r-hierarchy ((layerhigh integer) 
                                  (layerlow integer)
-                                 &optional (mode 'normal)) 
-   :initvals '(1 2 'normal)
+                                 &optional (mode 'include-pauses)) 
+   :initvals '(1 2 include-pauses)
    :indoc '("layernr" "layernr" "mode")
-   :menuins '((2 (("normal" 'normal) ("cell-starts" 'cell-starts))))
+   :menuins '((2 (("include-pauses" 'include-pauses) ("ignore-pauses" 'ignore-pauses) ("cell-starts" 'cell-starts))))
    :doc "Rule for making a hierarchical connection between two layers in a voice.
 
 <layerhigh> is the layer number for the higher layer in the hierarchy.
@@ -996,8 +1216,10 @@ samtidigt som händelserna i det högre skiktet).
    :icon 355
    
    (case mode
-     ((normal) (hierarchy-within-layer-rule layerhigh layerlow))
-     ((cell-starts) (hierarchy-to-cellstart-within-layer-rule layerhigh layerlow)))
+     ((include-pauses) (hierarchy-within-layer-rule layerhigh layerlow))
+     ((ignore-pauses) (hierarchy-within-layer-rule-ignore-pauses layerhigh layerlow))
+     ((cell-starts) (hierarchy-to-cellstart-within-layer-rule layerhigh layerlow))
+     )
    )
 
 
@@ -1006,10 +1228,10 @@ samtidigt som händelserna i det högre skiktet).
                                   (voicehigh integer)
                                   (layerlow integer)
                                   (voicelow integer)
-                                  &optional (mode 'normal)) 
-   :initvals '(1 0 1 1 'normal)
+                                  &optional (mode 'include-pauses)) 
+   :initvals '(1 0 1 1 include-pauses)
    :indoc '("layernr" "voicenr" "layernr" "voicenr" "mode")
-   :menuins '((4 (("normal" 'normal) ("cell-starts" 'cell-starts))))
+   :menuins '((4 (("include-pauses" 'include-pauses) ("ignore-pauses" 'ignore-pauses) ("cell-starts" 'cell-starts))))
    :doc "Rule for making a hierarchical connection between two layers in different voices.
 
 <layerhigh> is the layer number for the higher layer in the hierarchy.
@@ -1060,9 +1282,10 @@ Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
 "
    :icon 355
    
-   (case mode
-     ((normal) (hierarchy-between-layers-rule layerhigh layerlow voicehigh voicelow))
-     ((cell-starts) (hierarchy-to-cellstart-between-layers-rule layerhigh layerlow voicehigh voicelow))
+   (case (print mode)
+     ((include-pauses) (hierarchy-between-layers-rule layerhigh layerlow voicehigh voicelow))
+     ((ignore-pauses) (hierarchy-between-layers-rule-ignore-pauses layerhigh layerlow voicehigh voicelow))
+     ((cell-starts) (hierarchy-to-cellstart-between-layers-rule layerhigh layerlow voicehigh voicelow))   
      )
    )
 
@@ -1161,9 +1384,10 @@ lösning.
 
 (om::defmethod! RC::r-canon  ((layercomes integer)
                               (layerdux integer)
-                              (offset number))
-   :initvals '(2 1 0 0)
-   :indoc '("layernr" "layernr" "voicenr" "duration")
+                              (offset number)
+                              &optional (tempo 1))
+   :initvals '(2 1 0 1)
+   :indoc '("layernr" "layernr" "duration" "factor")
    :doc "Rule to create a rhythmical canon.
 
 <layercomes> is the layer number for the layer that will imitate the 
@@ -1171,6 +1395,11 @@ original rhythm.
 <layerdux> is the layer number for the original rhythm.
 <offset> is the distance in time (duration value as a ratio) between 
 the original rhythm and its imitation.
+<tempo> (optional) is a factor to scale the notevalues in the answer (i.e. comes).
+WARNING! To use tempo-factors smaller than 1 in combination with the rule
+r-eqlength might give no answer, since the dux does not exist when
+comes is built. Use the r-layerorder instead of r-eqlength.
+
 
 The layers have to be in the same voice (compare with \“gr-canon\”).
 --------------------------
@@ -1181,20 +1410,28 @@ Regel för att skapa en rytmisk kanon.
 <voicedux> är numret för stämman där orginalrytmen finns.
 <offset> är avståndet i tid (notvärde, angivet som ett bråk) mellan 
 orginalrytmen och imitationen.
+<tempo> är en faktor för att skala notvärdena i svaret (comes).
+VARNING! Om en tempofaktor mindre än 1 används i kombination med regeln
+r-eqlength kan det hända att inget svar att hittas, då dux inte existerar
+när comes byggs. Använd r-layerorder istället för r-eqlength.
 
 Skikten måste vara i samma stämma (jmfr \“gr-canon\”).
 "
    :icon 355
    
-   (canon-rule-wpauses layercomes layerdux offset) 
+   (if (= 1 tempo)
+     ;(canon-rule-wpauses layercomes layerdux offset) 
+     (canon-rule-wpauses-other-tempo layercomes layerdux offset tempo)
+     (canon-rule-wpauses-other-tempo layercomes layerdux offset tempo))
    )
 
 (om::defmethod! RC::gr-canon  ((layercomes integer)
                                (layerdux integer)
                                (voicedux integer)
-                               (offset number))
-   :initvals '(2 1 0 0)
-   :indoc '("layernr" "layernr" "voicenr" "duration")
+                               (offset number)
+                               &optional (tempo 1))
+   :initvals '(2 1 0 0 1)
+   :indoc '("layernr" "layernr" "voicenr" "duration" "factor")
    :doc "Rule to create a rhythmical canon.
 
 <layercomes> is the layer number for the layer that will imitate the 
@@ -1203,6 +1440,10 @@ original rhythm.
 <voicedux> is the voice number for the original rhythm.
 <offset> is the distance in time (duration value as a ratio) between 
 the original rhythm and its imitation.
+<tempo> (optional) is a factor to scale the notevalues in the answer (i.e. comes).
+WARNING! To use tempo-factors smaller than 1 in combination with the rule
+r-eqlength might give no answer, since the dux does not exist when
+comes is built. Use the r-layerorder instead of r-eqlength.
 
 The layers can be in different voices (compare with \“r-canon\”). The rule 
 should be connected to the voice where the imitation is (not the voice 
@@ -1215,6 +1456,10 @@ Regel för att skapa en rytmisk kanon.
 <voicedux> är numret för stämman där orginalrytmen finns.
 <offset> är avståndet i tid (notvärde, angivet som ett bråk) mellan 
 orginalrytmen och imitationen.
+<tempo> är en faktor för att skala notvärdena i svaret (comes).
+VARNING! Om en tempofaktor mindre än 1 används i kombination med regeln
+r-eqlength kan det hända att inget svar att hittas, då dux inte existerar
+när comes byggs. Använd r-layerorder istället för r-eqlength.
 
 Skikten kan vara i olika stämmor (jmfr \“r-canon\”). Regeln ska kopplas 
 till den stämma där imitationen finns (inte stämman där orginalrytmen 
@@ -1222,7 +1467,9 @@ finns).
 "
    :icon 355
    
-   (global-canon-rule-wpauses layercomes layerdux voicedux offset) 
+   (if (= 1 tempo)
+     (global-canon-rule-wpauses layercomes layerdux voicedux offset) 
+     (global-canon-rule-wpauses-other-tempo layercomes layerdux voicedux offset tempo))
    )
 
 

@@ -9,7 +9,7 @@
   (let ((1beat-grid (create-local-grid allowed-subdivisions (list 1 beatvalue))))
     (list 
      (list 
-      (list  
+      (list 
        (list beatvalue 1beat-grid))
       #'(lambda (indexx x)
           (let* ((this-layer-nr (get-layer-nr x))

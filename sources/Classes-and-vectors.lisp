@@ -1,11 +1,11 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by …rjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by Ã–rjan Sandred, IRCAM 1999
 ;
 ;
 ;Update to 1.3 19/8 2002 (Stockholm)
 ;Updated vector in this document:
 ;  part-sol-vector (has now a dimension for flags to indicate pauses)
-; 
+;
 ;Updated functions in this document:
 ;  put-this-rhythmcell, get-one-rhythmcell, get-one-rhythmcells-pauses, get-start-time, get-stop-time, 
 ;  get-one-rhythmlayer, get-one-layer-pauseflags, get-rhythmcell-before-last-abs-time, get-rhythmcell-pausflags-before-last, 
@@ -355,21 +355,32 @@
                     :test #'(lambda (x y) (<= x (abs y)))))))
 
 
+;;;NEW functions to support new canon rule 3/9/02
 
+(defun get-stretched-rhythm-within-timepoints (voice layer-nr last-index starttime endtime factor)
+  (let ((this-rlayer (om::om* factor (get-one-rhythmlayer voice layer-nr last-index))))   
+    (member starttime (reverse (member endtime (reverse this-rlayer) :test '>=)) :test '<=)))
 
+(defun get-stretched-pauseflags-within-timepoints (voice layer-nr last-index starttime endtime factor)
+  (let ((this-rlayer (om::om* factor (get-one-rhythmlayer voice layer-nr last-index)))
+        (this-rlayer-pauseflags (get-one-layer-pauseflags voice layer-nr last-index)))
+    (mapcar #'(lambda (value) (if (> value  0) 1 -1))
+            (member (1+ starttime) (reverse (member (1+ endtime) (reverse (om::om* (om::om+ this-rlayer 1) this-rlayer-pauseflags))
+                                               :test #'(lambda (x y) (>= x (abs y)))))
+                    :test #'(lambda (x y) (<= x (abs y)))))))
 
 ;-------------------------------
 ;classes for search variables
 (defclass rc-voice ()
-  ((voice-nr :initform nil :reader get-voice-nr :writer set-voice-nr)))
+  ((voice-nr :type integer :initform nil :reader get-voice-nr :writer set-voice-nr)))
 (defclass layer (rc-voice)
-  ((layer :initform nil :reader get-layer-nr :writer set-layer-nr)))
+  ((layer :type integer :initform nil :reader get-layer-nr :writer set-layer-nr)))
 (defclass variabledur (layer)
-  ((variabledur :initform 0 :reader get-variabledur :writer set-variabledur)))
+  ((variabledur :type ratio :initform 0 :reader get-variabledur :writer set-variabledur)))
 (defclass rhythmcell (variabledur)
-  ((rhythmcell :initform '() :reader get-rhythmcell :writer set-rhythmcell)
-   (local-on :initform '() :reader get-local-onset :writer set-local-onset)
-   (pauses :initform '() :reader get-pauses :writer set-pauses)))
+  ((rhythmcell :type list :initform '() :reader get-rhythmcell :writer set-rhythmcell)
+   (local-onset :type list :initform '() :reader get-local-onset :writer set-local-onset)
+   (pauses :type list :initform '() :reader get-pauses :writer set-pauses)))
 (defclass timesign (variabledur)
-  ((timesign :initform '() :reader get-timesign :writer set-timesign)))
+  ((timesign :type list :initform '() :reader get-timesign :writer set-timesign)))
 

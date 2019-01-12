@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √ñrjan Sandred, IRCAM 1999
 ;
 
 ;Use the function tree->simple. All other functions are called from this one.
@@ -11,8 +11,10 @@
 ; If the first value is tied (from "nothing"), this will give a floating point value in the result.
 
 ;used om functions: om*, flat
-; 
+;
 ;UPDATE 1.3. Bug in function fuse-pauses fixed (will now never output floats).
+;UPDATE 1.32. Bug in function unpack-tree fixed (will now work on lower hierarcical levels in the rhythmtree).
+
 
 (in-package RC)
 
@@ -21,19 +23,46 @@
 
 
 (defmethod sum-one-beat ((proportions number))
-  1)
+  1) ; 1 as a multiple to the value itself
 
+(defmethod get-beat-dur ((subtree number))
+  1) ; 1 as a multiple to the value itself
+
+(defmethod get-beat-dur ((subtree list))
+  (first subtree))
 
 (defmethod unpack-tree ((sub-tree number))
   sub-tree)
 
+(defmethod unpack-tree-level2 ((sub-tree number))
+  sub-tree)
+
+(defmethod unpack-tree-level3 ((sub-tree number))
+  sub-tree)
 
 (defmethod unpack-tree ((sub-tree list))
-  (let* ((proportional-format (mapcar 'unpack-tree (second sub-tree)))
+  (let* ((proportional-format (mapcar 'unpack-tree-level2 sub-tree))
+         (beat-dur (mapcar 'get-beat-dur sub-tree))
          (prop-length-beat (mapcar 'sum-one-beat proportional-format))
          (multiples-for-list (mapcar #'(lambda (beat) (/ (apply 'lcm prop-length-beat) beat))
                                      prop-length-beat)))
-    (om::flat (mapcar 'om::om* multiples-for-list proportional-format))))
+    (om::flat (om::om* beat-dur (mapcar 'om::om* multiples-for-list proportional-format)))))
+
+(defmethod unpack-tree-level2 ((sub-tree list))
+  (let* ((proportional-format (mapcar 'unpack-tree-level3 (second sub-tree)))
+         (prop-length-beat (mapcar 'sum-one-beat proportional-format))
+         (multiples-for-list (mapcar #'(lambda (beat) (/ (apply 'lcm prop-length-beat) beat))
+                                     prop-length-beat)))
+    (om::flat  (mapcar 'om::om* multiples-for-list proportional-format))))
+
+(defmethod unpack-tree-level3 ((sub-tree list))
+  (let* ((proportional-format (mapcar 'unpack-tree-level2 (second sub-tree)))
+         (beat-dur (first sub-tree))
+         (prop-length-beat (mapcar 'sum-one-beat proportional-format))
+         (multiples-for-list (mapcar #'(lambda (beat) (/ (apply 'lcm prop-length-beat) beat))
+                                     prop-length-beat)))
+    (om::flat (om::om* beat-dur (mapcar 'om::om* multiples-for-list proportional-format)))))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;tools for function below
@@ -76,7 +105,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun measures->simple (measures)
   (let* ((proportions (mapcar #'(lambda (measure)
-                                  (unpack-tree (list (caar measure) (cadr measure))))
+                                  (unpack-tree (cadr measure)))
                               measures))
          (multipliers (mapcar #'(lambda (measure proportion) (/ (apply '/ (car measure))
                                                      (truncate (apply '+ (mapcar 'abs proportion)))))
@@ -102,13 +131,13 @@
 Pauses following each other will be fused to one (longer) 
 pause. Slured note values will be fused to one note value. 
 --------------------------
-Konvertera ett rytmträd till en lista av notvärden (bråk).
+Konvertera ett rytmtr√§d till en lista av notv√§rden (br√•k).
 
-<tree> är ett rytmträd.
+<tree> √§r ett rytmtr√§d.
 
-Pauser som följer på varandra kommer att noteras sammanslagna 
-till en (längre) paus. Överbundna noter kommer att noteras 
-sammanslagna till ett notvärde.
+Pauser som f√∂ljer p√• varandra kommer att noteras sammanslagna 
+till en (l√§ngre) paus. √ñverbundna noter kommer att noteras 
+sammanslagna till ett notv√§rde.
 "
   :icon 379
   

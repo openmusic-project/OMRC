@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √ñrjan Sandred, IRCAM 1999
 ;
 ;4 rhythm layers possible (limited by the class stored section)
 ;
@@ -417,42 +417,42 @@ be taken. The format is a list of measure number and offset, for
 example (2 1/4) means one quarter note after the start of measure 
 number 2.
 
-The output should be connected to the rule \“r-lock-to-stored\”, or 
-optional you can generate instances of the class \“stored-section\”. 
-See further \“r-lock-to-stored\”. 
+The output should be connected to the rule \‚Äúr-lock-to-stored\‚Äù, or 
+optional you can generate instances of the class \‚Äústored-section\‚Äù. 
+See further \‚Äúr-lock-to-stored\‚Äù. 
 
 It is highly recommended that you always lock this box before 
-evaluating it – in the new solution the bar lines might be on 
+evaluating it ‚Äì in the new solution the bar lines might be on 
 new positions, and the <timepoint1> and <timepoint2> will then 
 not have the same meaning.
 
 Do not confuse the last found solution with what might be visible 
 in a notation window (the information is taken from internal 
-vectors connected to the search engine – every time the search 
+vectors connected to the search engine ‚Äì every time the search 
 engine is run, the last solution will be overwritten).
 --------------------------
-Lagra en sektion från senaste lösningen.
+Lagra en sektion fr√•n senaste l√∂sningen.
 
-<voice> är numret för den stämma från vilken sektionen kommer 
+<voice> √§r numret f√∂r den st√§mma fr√•n vilken sektionen kommer 
 att tas.
-<timepoint1> och <timepoint2> är start- och stoptidpunkter i den 
-senaste lösningen mellan vilka sektionen kommer att tas. Formatet 
-är en lista med taktnummer och offset, till exempel (2 1/4) betyder 
-en fjärdedel efter starten på takt två.
+<timepoint1> och <timepoint2> √§r start- och stoptidpunkter i den 
+senaste l√∂sningen mellan vilka sektionen kommer att tas. Formatet 
+√§r en lista med taktnummer och offset, till exempel (2 1/4) betyder 
+en fj√§rdedel efter starten p√• takt tv√•.
 
-Utgången ska kopplas till regeln \“r-lock-to-stored\”, eller så kan 
-man alternativt generera instanser av klassen \“stored-section\”. 
-Se vidare \“r-lock-to-stored\”. 
+Utg√•ngen ska kopplas till regeln \‚Äúr-lock-to-stored\‚Äù, eller s√• kan 
+man alternativt generera instanser av klassen \‚Äústored-section\‚Äù. 
+Se vidare \‚Äúr-lock-to-stored\‚Äù. 
 
-Det rekommenderas att alltid låsa funktionen innan man evaluerar 
-den – i den nya lösningen kan taktstrecken vara på nya positioner, 
-och <timepoint1> och <timepoint2> kommer då inte att ha samma 
-innebörd.
+Det rekommenderas att alltid l√•sa funktionen innan man evaluerar 
+den ‚Äì i den nya l√∂sningen kan taktstrecken vara p√• nya positioner, 
+och <timepoint1> och <timepoint2> kommer d√• inte att ha samma 
+inneb√∂rd.
 
-Blanda inte ihop den senaste lösningen med vad som kan vara synligt 
-i ett notationsfönster (informationen tas från interna vektorer 
-kopplade till sökmotorn – varje gång sökmotorn körs skrivs den 
-senaste lösningen över). 
+Blanda inte ihop den senaste l√∂sningen med vad som kan vara synligt 
+i ett notationsf√∂nster (informationen tas fr√•n interna vektorer 
+kopplade till s√∂kmotorn ‚Äì varje g√•ng s√∂kmotorn k√∂rs skrivs den 
+senaste l√∂sningen √∂ver). 
 "
   :icon 384
   
@@ -466,8 +466,8 @@ senaste lösningen över).
    :indoc '("from store-section" "layernr" "layernr" "layernr" "layernr" "layernr" "timepoint")
    :doc "Rule that lock a section in the solution to be identical to a stored section from an earlier solution.
 
-<section> should either be connected to a \“store-section\” box, 
-or an instance of the class \“stored-section\”.
+<section> should either be connected to a \‚Äústore-section\‚Äù box, 
+or an instance of the class \‚Äústored-section\‚Äù.
 <layernr0> (optional up to maximum layernr4) is (are) the layer 
 number(s) for the layer(s) to lock.
 <offset> You can optional move the stored section to a new position 
@@ -475,17 +475,17 @@ in the sequence. Offset is the distance (duration value as a ratio)
 from the start of the sequence. If offset is nil, the section will 
 be locked to its original position.
 --------------------------
-Regel som låser en sektion i lösningen till att vara identisk med en 
-lagrad sektion från en tidigare lösning.
+Regel som l√•ser en sektion i l√∂sningen till att vara identisk med en 
+lagrad sektion fr√•n en tidigare l√∂sning.
 
-<section> ska antingen kopplas till \“store-section\”, eller en 
-instans av klassen \“stored-section\”.
-<layernr0> (alternativt upp till maximalt layernr4) är numret för 
-skiktet (skikten) att låsa.
+<section> ska antingen kopplas till \‚Äústore-section\‚Äù, eller en 
+instans av klassen \‚Äústored-section\‚Äù.
+<layernr0> (alternativt upp till maximalt layernr4) √§r numret f√∂r 
+skiktet (skikten) att l√•sa.
 <offset> Man kan alternativt flytta en sparad sektion till en ny 
-position i sekvensen. Offset är avståndet (notvärde, angivet som 
-ett bråk) från sekvensens start. Om offset är nil kommer sektionen 
-att låsas till sin ursprungliga position.
+position i sekvensen. Offset √§r avst√•ndet (notv√§rde, angivet som 
+ett br√•k) fr√•n sekvensens start. Om offset √§r nil kommer sektionen 
+att l√•sas till sin ursprungliga position.
 "
    :icon 385
    
@@ -502,26 +502,26 @@ att låsas till sin ursprungliga position.
    :initvals '(nil 'poly)
    :indoc '("stored-section" "format")
    :menuins '((1 (("poly" 'poly) ("voices" 'voices) ("simple" 'simple))))
-   :doc "Decode the box \“store-section\” or an instance of the class \“stored-section\” to a score or to simple format.
+   :doc "Decode the box \‚Äústore-section\‚Äù or an instance of the class \‚Äústored-section\‚Äù to a score or to simple format.
 
-<section> should be connected to the box \“store-section\” or an 
-instance of the class \“stored-section\”.
+<section> should be connected to the box \‚Äústore-section\‚Äù or an 
+instance of the class \‚Äústored-section\‚Äù.
 <output> is the format for the output of this box. You can either 
 get a poly-object, or a list of voice-objetcs (each one representing 
 one rhythm layer), or in simple format (a list of sublists for the 
 time signatures and every rhythm layer). Choose with the help of 
 the pop-up menu.
 --------------------------
-Avkoda funktionen \“store-section\” eller en instans av klassen 
-\“stored-section\” till ett partitur eller till \“simple format\”.
+Avkoda funktionen \‚Äústore-section\‚Äù eller en instans av klassen 
+\‚Äústored-section\‚Äù till ett partitur eller till \‚Äúsimple format\‚Äù.
 
-<section> ska antingen kopplas till \“store-section\”, eller en 
-instans av klassen \“stored-section\”.
-<output> är formatet för utgången. Man kan antingen få ett poly-
-objekt, eller en lista med voice-objekt (där varje objekt 
-representerar ett rytmskik), eller i \“simple format\” (en lista 
-med sub-listor för taktartssignaturer och varje rytm skikt). 
-Välj med hjälp at pop-up menyn.
+<section> ska antingen kopplas till \‚Äústore-section\‚Äù, eller en 
+instans av klassen \‚Äústored-section\‚Äù.
+<output> √§r formatet f√∂r utg√•ngen. Man kan antingen f√• ett poly-
+objekt, eller en lista med voice-objekt (d√§r varje objekt 
+representerar ett rytmskik), eller i \‚Äúsimple format\‚Äù (en lista 
+med sub-listor f√∂r taktartssignaturer och varje rytm skikt). 
+V√§lj med hj√§lp at pop-up menyn.
 "
    :icon 386
    
@@ -580,42 +580,42 @@ be taken. The format is a list of measure number and offset, for
 example (2 1/4) means one quarter note after the start of measure 
 number 2.
 
-The output should be connected to the rule \“r-lock-to-stored\”, or 
-optional you can generate instances of the class \“stored-section\”. 
-See further \“r-lock-to-stored\”. 
+The output should be connected to the rule \‚Äúr-lock-to-stored\‚Äù, or 
+optional you can generate instances of the class \‚Äústored-section\‚Äù. 
+See further \‚Äúr-lock-to-stored\‚Äù. 
 
 It is highly recommended that you always lock this box before 
-evaluating it – in the new solution the bar lines might be on 
+evaluating it ‚Äì in the new solution the bar lines might be on 
 new positions, and the <timepoint1> and <timepoint2> will then 
 not have the same meaning.
 
 Do not confuse the last found solution with what might be visible 
 in a notation window (the information is taken from internal 
-vectors connected to the search engine – every time the search 
+vectors connected to the search engine ‚Äì every time the search 
 engine is run, the last solution will be overwritten).
 --------------------------
-Lagra en sektion från senaste lösningen (endast kompatibel med Csolver).
+Lagra en sektion fr√•n senaste l√∂sningen (endast kompatibel med Csolver).
 
-<voice> är numret för den stämma från vilken sektionen kommer 
+<voice> √§r numret f√∂r den st√§mma fr√•n vilken sektionen kommer 
 att tas.
-<timepoint1> och <timepoint2> är start- och stoptidpunkter i den 
-senaste lösningen mellan vilka sektionen kommer att tas. Formatet 
-är en lista med taktnummer och offset, till exempel (2 1/4) betyder 
-en fjärdedel efter starten på takt två.
+<timepoint1> och <timepoint2> √§r start- och stoptidpunkter i den 
+senaste l√∂sningen mellan vilka sektionen kommer att tas. Formatet 
+√§r en lista med taktnummer och offset, till exempel (2 1/4) betyder 
+en fj√§rdedel efter starten p√• takt tv√•.
 
-Utgången ska kopplas till regeln \“r-lock-to-stored\”, eller så kan 
-man alternativt generera instanser av klassen \“stored-section\”. 
-Se vidare \“r-lock-to-stored\”. 
+Utg√•ngen ska kopplas till regeln \‚Äúr-lock-to-stored\‚Äù, eller s√• kan 
+man alternativt generera instanser av klassen \‚Äústored-section\‚Äù. 
+Se vidare \‚Äúr-lock-to-stored\‚Äù. 
 
-Det rekommenderas att alltid låsa funktionen innan man evaluerar 
-den – i den nya lösningen kan taktstrecken vara på nya positioner, 
-och <timepoint1> och <timepoint2> kommer då inte att ha samma 
-innebörd.
+Det rekommenderas att alltid l√•sa funktionen innan man evaluerar 
+den ‚Äì i den nya l√∂sningen kan taktstrecken vara p√• nya positioner, 
+och <timepoint1> och <timepoint2> kommer d√• inte att ha samma 
+inneb√∂rd.
 
-Blanda inte ihop den senaste lösningen med vad som kan vara synligt 
-i ett notationsfönster (informationen tas från interna vektorer 
-kopplade till sökmotorn – varje gång sökmotorn körs skrivs den 
-senaste lösningen över).
+Blanda inte ihop den senaste l√∂sningen med vad som kan vara synligt 
+i ett notationsf√∂nster (informationen tas fr√•n interna vektorer 
+kopplade till s√∂kmotorn ‚Äì varje g√•ng s√∂kmotorn k√∂rs skrivs den 
+senaste l√∂sningen √∂ver).
 "
   :icon 388
   

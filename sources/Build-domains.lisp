@@ -1,13 +1,14 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √ñrjan Sandred, IRCAM 1999
 ; Update 1.3 augusti 2002
+; Update 1.31 september 2002
 ;
 ;
 ; The following functions has been changed in this update:
 ;     lock-one-predefined-layer, predefine-rlayer-in-builddomain, RC::preset-layer
+;     big-domain, RC::make-rhythm-domain
 ;
-;
- 
+
 (in-package RC)
 ;-------------------------------
 ;ENCODEING
@@ -39,7 +40,7 @@
           (set-timesign timesign this-instance)
           (set-variabledur (apply '/ timesign) this-instance))
         (progn (print "WARNING: The input to the domain input 0 is not time signatures!!   ")
-               (om-beep 2)))
+               (om::om-beep)))
     this-instance)))
 
 
@@ -94,7 +95,7 @@
 #'(lambda (voice layer-nr)
     (if (= layer-nr 0) 
       (progn (print "Rhythms can't be predefined in a measure layer.")
-             (om-beep 2))
+             (om::om-beep))
       (lock-one-predefined-layer rhythm-seq-abs pauseflags voice layer-nr)))) ;OBS voice in lambda function
 
 
@@ -220,7 +221,7 @@
 
     #'(lambda (voice layer-nr)
         (if (/= layer-nr 0) (progn (print "timesignatures can't be predefined in a rhythm layer.")
-                                   (om-beep 2))
+                                   (om::om-beep))
             (lock-one-measurelayer timesign-list voice layer-nr beatvalue1 allowed-subdivisions1 
                                    beatvalue2 allowed-subdivisions2
                                    beatvalue3 allowed-subdivisions3
@@ -322,22 +323,22 @@ If an input is set to nil, this layer is not used (for the first
 input this means that the solution will not be divided into bars. 
 4//4 will be used in notation windows). A layer can also be predefined; 
 i.e. the layer can not be changed by the search engine (but will 
-affect other layers in the same way as for \“ordinary\” domains). 
-This is done by connecting the \“preset-layer\”/\”preset-timesign\” 
+affect other layers in the same way as for \‚Äúordinary\‚Äù domains). 
+This is done by connecting the \‚Äúpreset-layer\‚Äù/\‚Äùpreset-timesign\‚Äù 
 boxes to the input for one layer.
 --------------------------
-Bygg en domän för en stämma. 
+Bygg en dom√§n f√∂r en st√§mma. 
 
-<timesign-list> är en lista av möjliga taktarter som kan förekomma.
-<rhythmcell-list1> (kan expanderas upp till rhythmcell-list4) är en 
-lista av möjliga rytmceller som kan förekomma i ett skikt.
+<timesign-list> √§r en lista av m√∂jliga taktarter som kan f√∂rekomma.
+<rhythmcell-list1> (kan expanderas upp till rhythmcell-list4) √§r en 
+lista av m√∂jliga rytmceller som kan f√∂rekomma i ett skikt.
 
-Om en ingång ges värdet nil används inte det skiktet (för taktarts-
-skiktet innebär det att lösningen inte indelas i taktarter. 4//4-takt 
-används i notationsfönster). Ett skikt kan också fördefinieras, 
-d.v.s. skiktet kan inte förändras av sökmotorn (men påverka 
-andra skikt på samma sätt som \“vanliga\” domäner). Detta görs genom 
-att ansluta \“preset-layer\”/\”preset-timesign\” till ingången för ett 
+Om en ing√•ng ges v√§rdet nil anv√§nds inte det skiktet (f√∂r taktarts-
+skiktet inneb√§r det att l√∂sningen inte indelas i taktarter. 4//4-takt 
+anv√§nds i notationsf√∂nster). Ett skikt kan ocks√• f√∂rdefinieras, 
+d.v.s. skiktet kan inte f√∂r√§ndras av s√∂kmotorn (men p√•verka 
+andra skikt p√• samma s√§tt som \‚Äúvanliga\‚Äù dom√§ner). Detta g√∂rs genom 
+att ansluta \‚Äúpreset-layer\‚Äù/\‚Äùpreset-timesign\‚Äù till ing√•ngen f√∂r ett 
 skikt.
 "
 
@@ -360,16 +361,16 @@ indicate pauses.
 
 The layer freezes to the rhythm sequence and can not be changed 
 by the search engine. The output should be connected to the input 
-on the \“voice-domain\” box for the layer you want to predefine.
+on the \‚Äúvoice-domain\‚Äù box for the layer you want to predefine.
 --------------------------
-Fördefiniera ett rytmskikt.
+F√∂rdefiniera ett rytmskikt.
 
-<rhythmseq> är en lista med notvärden (bråk). Negativa värden 
+<rhythmseq> √§r en lista med notv√§rden (br√•k). Negativa v√§rden 
 indikerar paus.
 
-Skiktet fryses till rytmsekvensen och kan inte förändras av 
-sökmotorn. Utgången ska anslutas till ingången på \“voice-domain\”
-för det skikt man vill fördefiniera.
+Skiktet fryses till rytmsekvensen och kan inte f√∂r√§ndras av 
+s√∂kmotorn. Utg√•ngen ska anslutas till ing√•ngen p√• \‚Äúvoice-domain\‚Äù
+f√∂r det skikt man vill f√∂rdefiniera.
 "
 
   :icon 357
@@ -392,38 +393,38 @@ för det skikt man vill fördefiniera.
 
 <timesign-list> is a list of time signatures.
 <beatvalue1> and <subdiv1> come in a pair (can be expanded up 
-to maximum 5 pairs), and the rule \“r-beat-subdiv\” depends on them. 
+to maximum 5 pairs), and the rule \‚Äúr-beat-subdiv\‚Äù depends on them. 
 <subdiv1> is a list of possible subdivisions of the beat. <beatvalue1>  
 is the note value in the time signature the subdivision refers to. 
 Example: If <beatvalue1> = 4, then <subdiv1> tells how the beats in a 
 measure with a time signature with the beat value a quarter note can 
 be subdivided. If <subdiv1> = (1 2 3 4 5) this means that the beat can 
 be subdivided up to a quintuplet, however only if this is on the 
-beat (i.e. not as a syncopation). See further  \“r-beat-subdiv\”.
+beat (i.e. not as a syncopation). See further  \‚Äúr-beat-subdiv\‚Äù.
 
 The time signatures in the solution freeze to the given sequence of 
 time signature (they can not be changed by the search engine). The 
 output of the box should be connected to the first input on the 
-\“voice-domain\” box for the voice you want to affect.
+\‚Äúvoice-domain\‚Äù box for the voice you want to affect.
 --------------------------
-Fördefiniera ett taktartsskikt.
+F√∂rdefiniera ett taktartsskikt.
 
-<timesign-list> är en lista med taktarter.
-<beatvalue1> och <subdiv1> hör ihop i par (kan expanderas upp 
-till maximalt 5 par), och är till för att regeln \“r-beat-subdiv\” 
-ska kunna fungera. <subdiv1> är en lista av möjliga underdelningar 
-av ett pulsslag. <beatvalue1> är notvärdet i den taktarstsignatur 
+<timesign-list> √§r en lista med taktarter.
+<beatvalue1> och <subdiv1> h√∂r ihop i par (kan expanderas upp 
+till maximalt 5 par), och √§r till f√∂r att regeln \‚Äúr-beat-subdiv\‚Äù 
+ska kunna fungera. <subdiv1> √§r en lista av m√∂jliga underdelningar 
+av ett pulsslag. <beatvalue1> √§r notv√§rdet i den taktarstsignatur 
 underdelningen avser. Exempel: Om <beatvalue1> = 4 anger <subdiv1> hur 
-pulsslagen en taktart med pulsvärdet en fjärdedelsnot kan underdelas. 
+pulsslagen en taktart med pulsv√§rdet en fj√§rdedelsnot kan underdelas. 
 Om <subdiv1> = (1 2 3 4 5) betyder det att pulsslaget kan underdelas 
-upp till kvintol, dock endast om denna hamnar på slaget (d.v.s. 
-inte som synkop). Se vidare \“r-beat-subdiv\”.
+upp till kvintol, dock endast om denna hamnar p√• slaget (d.v.s. 
+inte som synkop). Se vidare \‚Äúr-beat-subdiv\‚Äù.
 
 
-Taktarterna för lösningen fryses till den givna sekvensen av 
-taktarter (de kan inte förändras av sökmotorn). Utgången ska 
-anslutas till första ingången på \“voice-domain\” för den stämma
-man vill påverka.
+Taktarterna f√∂r l√∂sningen fryses till den givna sekvensen av 
+taktarter (de kan inte f√∂r√§ndras av s√∂kmotorn). Utg√•ngen ska 
+anslutas till f√∂rsta ing√•ngen p√• \‚Äúvoice-domain\‚Äù f√∂r den st√§mma
+man vill p√•verka.
 "
   :icon 357
 
@@ -439,28 +440,28 @@ man vill påverka.
                                   voice3 voice4 
                                   voice5 voice6)
   
-   :initvals '(1 nil nil nil nil nil nil)
-    :indoc '("number of variables" "voice-domain" "voice-domain" "voice-domain" "voice-domain" "voice-domain" "voice-domain")
-    :doc "Format all voice-domains for the pmc <s-space> input.
+  :initvals '(1 nil nil nil nil nil nil)
+  :indoc '("number of variables" "voice-domain" "voice-domain" "voice-domain" "voice-domain" "voice-domain" "voice-domain")
+  :doc "Format all voice-domains for the pmc <s-space> input.
 
 <n-var> is the number of variables that are asked for in the solution.
 <voice0> (can be expanded up to voice6) should be connected to a 
-\“voice-domain\” output. A \“voice-domain\” is identified by which 
+\‚Äúvoice-domain\‚Äù output. A \‚Äúvoice-domain\‚Äù is identified by which 
 entrance it is connected to. Only rules that are connected to the 
-corresponding input on the \“rules->pmc\” will affect the domain.
+corresponding input on the \‚Äúrules->pmc\‚Äù will affect the domain.
 --------------------------
-Formatera alla domäner för ingången <s-space> på pmc.
+Formatera alla dom√§ner f√∂r ing√•ngen <s-space> p√• pmc.
 
-<n-var> är antalet variabler som önskas i lösningen.
-<voice0> (kan expanderas upp till voice6) ska anslutas till utgången från en 
-\“voice-domain\”. En \“voice-domain\” identifieras utifrån vilken av dessa 
-ingångar den är ansluten till. Endast regler som är anslutna till motsvarande 
-ingång på \“rules->pmc\” kommer att påverka domänen.
+<n-var> √§r antalet variabler som √∂nskas i l√∂sningen.
+<voice0> (kan expanderas upp till voice6) ska anslutas till utg√•ngen fr√•n en 
+\‚Äúvoice-domain\‚Äù. En \‚Äúvoice-domain\‚Äù identifieras utifr√•n vilken av dessa 
+ing√•ngar den √§r ansluten till. Endast regler som √§r anslutna till motsvarande 
+ing√•ng p√• \‚Äúrules->pmc\‚Äù kommer att p√•verka dom√§nen.
 "
-    :icon 375
+  :icon 375
     
-     (make-list n-var :initial-element
-                (create-domain-for-all-voices-pmc voice0 voice1 voice2 voice3 voice4 voice5 voice6)))
+  (make-list n-var :initial-element
+             (create-domain-for-all-voices-pmc voice0 voice1 voice2 voice3 voice4 voice5 voice6)))
 
 
 (om::defmethod! RC::rhythmdomain->voices ((domain list))
@@ -473,13 +474,13 @@ ingång på \“rules->pmc\” kommer att påverka domänen.
 4//4 will be used as meter. The longest cell decides the length 
 for the notation.
 --------------------------
-Konvertera en domän (eller vilken lista av rytmceller som helst) 
+Konvertera en dom√§n (eller vilken lista av rytmceller som helst) 
 till en lista av voice-objekt.
 
-<domain> är en lista av rytmceller, noetrade som listor av bråk.
+<domain> √§r en lista av rytmceller, noetrade som listor av br√•k.
 
-4//4 kommer att användas som taktart. Den längsta cellen avgör 
-längden för notationen.
+4//4 kommer att anv√§ndas som taktart. Den l√§ngsta cellen avg√∂r 
+l√§ngden f√∂r notationen.
 "
    :icon 387
    
@@ -530,20 +531,20 @@ längden för notationen.
     :doc "Format all voice-domains for the Csolver <data> input.
 
 <voice0> (can be expanded up to voice6) should be connected to a 
-\“voice-domain\” output. A \“voice-domain\” is identified by which 
+\‚Äúvoice-domain\‚Äù output. A \‚Äúvoice-domain\‚Äù is identified by which 
 entrance it is connected to. Only rules that are connected to the 
-corresponding input on the \“rules->csolver\” will affect the domain.
+corresponding input on the \‚Äúrules->csolver\‚Äù will affect the domain.
 
 The number of variables in the solution is defined on the Csolver (<n-ch>).
 --------------------------
-Formatera alla domäner för ingången <data> på Csolver.
+Formatera alla dom√§ner f√∂r ing√•ngen <data> p√• Csolver.
 
-<voice0> (kan expanderas upp till voice6) ska anslutas till utgången från en 
-\“voice-domain\”. En \“voice-domain\” identifieras utifrån vilken av dessa 
-ingångar den är ansluten till. Endast regler som är anslutna till motsvarande 
-ingång på \“rules->csolver\” kommer att påverka domänen.
+<voice0> (kan expanderas upp till voice6) ska anslutas till utg√•ngen fr√•n en 
+\‚Äúvoice-domain\‚Äù. En \‚Äúvoice-domain\‚Äù identifieras utifr√•n vilken av dessa 
+ing√•ngar den √§r ansluten till. Endast regler som √§r anslutna till motsvarande 
+ing√•ng p√• \‚Äúrules->csolver\‚Äù kommer att p√•verka dom√§nen.
 
-Antalet variablar i lösningen definieras på Csolver (<n-ch>).
+Antalet variablar i l√∂sningen definieras p√• Csolver (<n-ch>).
 "
     :icon 365
     
@@ -570,3 +571,37 @@ Antalet variablar i lösningen definieras på Csolver (<n-ch>).
 ;  
 ;  (unset-layer-predefined-flag 0 layer-nr)
 ;  )
+
+
+;;;NEW function 1.31
+
+(defun big-domain (shortest-dur longest-dur tuplets pauses)
+  (let ((durations (om::arithm-ser shortest-dur longest-dur shortest-dur)))
+    
+    (if tuplets
+      (if (typep tuplets 'integer)
+        (setf durations (append durations (om::arithm-ser (/ (* 2 shortest-dur) tuplets) longest-dur (/ (* 2 shortest-dur) tuplets))))
+        (if (typep tuplets 'list)
+          (setf durations (append durations
+                                  (mapcar #'(lambda (tuplet) (om::arithm-ser (/ (* 2 shortest-dur) tuplet) longest-dur (/ (* 2 shortest-dur) tuplet)))
+                                          tuplets)))
+          (print "error in tuplets to big-domain"))))
+    (if pauses 
+      (mapcar 'list (append (remove-duplicates (sort (om::flat durations) '<))
+                            (om::om- 0 (remove-duplicates (sort (om::flat durations) '<)))))
+      (mapcar 'list (remove-duplicates (sort (om::flat durations) '<))))))
+
+
+
+(om::defmethod! RC::make-rhythm-domain ((shortest-dur number)
+                                        (longest-dur number)
+                                        &optional (tuplets nil)
+                                        (pauses nil))
+   
+   :initvals '(1/16 1 nil nil )
+   :indoc '("duration" "duration" "subdiv" "?")
+   :menuins ((3 (("yes" 't) ("no" 'nil) )))
+   :doc ""
+   :icon 389
+   
+   (big-domain shortest-dur longest-dur tuplets pauses))

@@ -10,7 +10,7 @@
                                    (list 'if (list '= '(get-voice-nr ?1) voice)
                                          (list 'funcall (nth rulex rules) '(1- (omcs::cur-index)) '?1)
                                          0)))))
- 
+
 
 (defun collect-heuristic-rules (rulesvoice0 rulesvoice1 rulesvoice2 
                                             rulesvoice3 rulesvoice4 

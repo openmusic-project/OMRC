@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √ñrjan Sandred, IRCAM 1999
 ;
 ;Updated to version 1.3 19/8 2002 (Stockholm)
 ;
@@ -443,11 +443,11 @@
    :doc "Decode the solution from the pmc (also works for Csolver).
 
 <sol> is the solution from pmc (or Csolver).
-<tempo> is the tempo that the notation window (\“voice\” or \“poly\”) will use.
+<tempo> is the tempo that the notation window (\‚Äúvoice\‚Äù or \‚Äúpoly\‚Äù) will use.
 <output> is the format for the output of this box. You can either get a list 
 of poly-objects (each one representing one voice in the solution), or a list 
 of voice-objects (each one representing one rhythm layer in the solution), 
-or a list in \“simple format\” (with a sublist for each voice containing sublists for 
+or a list in \‚Äúsimple format\‚Äù (with a sublist for each voice containing sublists for 
 the time signatures and every rhythm layer). Choose with the help of the 
 pop-up menu. 
 <presets?> You can chose whether to include the preset layers in the output.
@@ -457,23 +457,23 @@ If the voice-list format is chosen, each voice will address a new MIDI channel.
 If the poly-list is chosen, each voice in a poly-box will address a new MIDI 
 channel. If no time signatures exist in the solution, 4//4 is used as default.
 --------------------------
-Avkoda lösningen från pmc (fungerar även med Csolver).
+Avkoda l√∂sningen fr√•n pmc (fungerar √§ven med Csolver).
 
-<sol> är lösningen från pmc (eller Csolver).
-<tempo> är det tempo som notationsfönstret (\“voice\” eller \“poly\”) kommer att 
-använda.
-<output> är det format man får resultatet i. Man kan antingen få en 
-lista med poly-objekt (där varje objekt representerar en stämma i lösningen), 
-eller en lista med voice-objekt (där varje objekt representerar ett rytmskikt 
-i lösningen), eller en list i \“simple format\” (med en sub-lista för varje stämma, 
-bestående av sub-listor för taktartssignaturer och varje rytm skikt). Välj 
-med hjälp at pop-up menyn.
-<presets?> Man kan välja att inkludera fördefinierade skikt eller inte i
-resultatet. Välj med hjälp av pop-up menyn.
+<sol> √§r l√∂sningen fr√•n pmc (eller Csolver).
+<tempo> √§r det tempo som notationsf√∂nstret (\‚Äúvoice\‚Äù eller \‚Äúpoly\‚Äù) kommer att 
+anv√§nda.
+<output> √§r det format man f√•r resultatet i. Man kan antingen f√• en 
+lista med poly-objekt (d√§r varje objekt representerar en st√§mma i l√∂sningen), 
+eller en lista med voice-objekt (d√§r varje objekt representerar ett rytmskikt 
+i l√∂sningen), eller en list i \‚Äúsimple format\‚Äù (med en sub-lista f√∂r varje st√§mma, 
+best√•ende av sub-listor f√∂r taktartssignaturer och varje rytm skikt). V√§lj 
+med hj√§lp at pop-up menyn.
+<presets?> Man kan v√§lja att inkludera f√∂rdefinierade skikt eller inte i
+resultatet. V√§lj med hj√§lp av pop-up menyn.
 
-Om voice-list formatet är valt kommer varje ny voice adressera en ny MIDI kanal. 
-Om poly-list formatet är valt kommer varje ny voice i ett poly-objekt att 
-adressera en ny MIDI kanal. Om inga taktarter existerar i lösningen används 
+Om voice-list formatet √§r valt kommer varje ny voice adressera en ny MIDI kanal. 
+Om poly-list formatet √§r valt kommer varje ny voice i ett poly-objekt att 
+adressera en ny MIDI kanal. Om inga taktarter existerar i l√∂sningen anv√§nds 
 4//4-takt.
 "
 
@@ -501,10 +501,10 @@ adressera en ny MIDI kanal. Om inga taktarter existerar i lösningen används
   :doc "View all predefined layers in one voice.
 
 <voice> is the number for the voice to be viewed.
-<tempo> is the tempo that the notation window (\“voice\” or \“poly\”) will use.
+<tempo> is the tempo that the notation window (\‚Äúvoice\‚Äù or \‚Äúpoly\‚Äù) will use.
 <output> is the format for the output of this box. You can either get a 
 poly-object, or a list of voice-objects (each one representing one rhythm 
-layer in the solution), or a list in \“simple format\”  (a list of sublists for 
+layer in the solution), or a list in \‚Äúsimple format\‚Äù  (a list of sublists for 
 the time signatures and every rhythm layer). Choose with the help of the 
 pop-up menu. 
 
@@ -512,19 +512,19 @@ If the voices format is chosen, each voice will address a new MIDI channel.
 If the poly format is chosen, each voice in the poly-box will address a 
 new MIDI channel. If no time signature is present, 4//4 is used as default.
 --------------------------
-Visa alla fördefinierade skikt i en stämma.
+Visa alla f√∂rdefinierade skikt i en st√§mma.
 
-<voice> är numret för stämman som ska visas.
-<tempo> är det tempo som notationsfönstret (\“voice\” eller \“poly\”) kommer 
-att använda.
-<output> är det format som man får resultatet i. Man kan antingen få ett 
-poly-objekt, eller en lista med voice-objekt (där varje objekt representerar 
-ett rytmskikt i lösningen), eller en lista i \“simple format\” (en lista med sub-listor 
-för taktartssignaturer och varje rytm skikt). Välj med hjälp at pop-up menyn.
+<voice> √§r numret f√∂r st√§mman som ska visas.
+<tempo> √§r det tempo som notationsf√∂nstret (\‚Äúvoice\‚Äù eller \‚Äúpoly\‚Äù) kommer 
+att anv√§nda.
+<output> √§r det format som man f√•r resultatet i. Man kan antingen f√• ett 
+poly-objekt, eller en lista med voice-objekt (d√§r varje objekt representerar 
+ett rytmskikt i l√∂sningen), eller en lista i \‚Äúsimple format\‚Äù (en lista med sub-listor 
+f√∂r taktartssignaturer och varje rytm skikt). V√§lj med hj√§lp at pop-up menyn.
 
-Om voices formatet är valt kommer varje ny voice adressera en ny MIDI kanal. 
-Om poly formatet är valt kommer varje ny voice i poly-objektet att adressera 
-en ny MIDI kanal. Om inga taktarter existerar i lösningen används 4//4-takt.
+Om voices formatet √§r valt kommer varje ny voice adressera en ny MIDI kanal. 
+Om poly formatet √§r valt kommer varje ny voice i poly-objektet att adressera 
+en ny MIDI kanal. Om inga taktarter existerar i l√∂sningen anv√§nds 4//4-takt.
 "
 
   :icon 364
@@ -547,19 +547,19 @@ en ny MIDI kanal. Om inga taktarter existerar i lösningen används 4//4-takt.
 
 <voice> is the voice number for the layer.
 <layer> is the layer number for the layer (0 will only give the time signatures).
-<tempo> is the tempo that the notation window (\“voice\”) will use.
+<tempo> is the tempo that the notation window (\‚Äúvoice\‚Äù) will use.
 <output> is the format for the output of this box. You can either get the 
-output as a voice-object or a list in \“simple format\”  (a list of all duration 
+output as a voice-object or a list in \‚Äúsimple format\‚Äù  (a list of all duration 
 values or time signatures). Choose with the help of the pop-up menu.
 --------------------------
-Avkoda ett skikt från den senaste funna lösningen (pmc).
+Avkoda ett skikt fr√•n den senaste funna l√∂sningen (pmc).
 
-<voice> är numret för stämman.
-<layer> är numret för skiktet (välj 0 för att bara få taktarterna).
-<tempo> är det tempo som notationsfönstret (\“voice\”) kommer att använda.
-<output> är det format som man får resultatet i. Man kan antingen få 
-resultatet som ett voice-objekt eller som en lista i \“simple format\” (en lista 
-med alla notvärden eller taktartssignaturer). Välj med hjälp at pop-up menyn.
+<voice> √§r numret f√∂r st√§mman.
+<layer> √§r numret f√∂r skiktet (v√§lj 0 f√∂r att bara f√• taktarterna).
+<tempo> √§r det tempo som notationsf√∂nstret (\‚Äúvoice\‚Äù) kommer att anv√§nda.
+<output> √§r det format som man f√•r resultatet i. Man kan antingen f√• 
+resultatet som ett voice-objekt eller som en lista i \‚Äúsimple format\‚Äù (en lista 
+med alla notv√§rden eller taktartssignaturer). V√§lj med hj√§lp at pop-up menyn.
 "
    :icon 377
    
@@ -609,19 +609,19 @@ med alla notvärden eller taktartssignaturer). Välj med hjälp at pop-up menyn.
 
 <voice> is the voice number for the layer.
 <layer> is the layer number for the layer (0 will only give the time signatures).
-<tempo> is the tempo that the notation window (\“voice\”) will use.
+<tempo> is the tempo that the notation window (\‚Äúvoice\‚Äù) will use.
 <output> is the format for the output of this box. You can either get the 
-output as a voice-object or a list in \“simple format\”  (a list of all duration 
+output as a voice-object or a list in \‚Äúsimple format\‚Äù  (a list of all duration 
 values or time signatures). Choose with the help of the pop-up menu.
 --------------------------
-Avkoda ett skikt från den senaste funna lösningen (Csolver).
+Avkoda ett skikt fr√•n den senaste funna l√∂sningen (Csolver).
 
-<voice> är numret för stämman.
-<layer> är numret för skiktet (välj 0 för att bara få taktarterna).
-<tempo> är det tempo som notationsfönstret (\“voice\”) kommer att använda.
-<output> är det format som man får resultatet i. Man kan antingen få 
-resultatet som ett voice-objekt eller som en lista i \“simple format\” (en lista 
-med alla notvärden eller taktartssignaturer). Välj med hjälp at pop-up menyn.
+<voice> √§r numret f√∂r st√§mman.
+<layer> √§r numret f√∂r skiktet (v√§lj 0 f√∂r att bara f√• taktarterna).
+<tempo> √§r det tempo som notationsf√∂nstret (\‚Äúvoice\‚Äù) kommer att anv√§nda.
+<output> √§r det format som man f√•r resultatet i. Man kan antingen f√• 
+resultatet som ett voice-objekt eller som en lista i \‚Äúsimple format\‚Äù (en lista 
+med alla notv√§rden eller taktartssignaturer). V√§lj med hj√§lp at pop-up menyn.
 "
    :icon 374
    
@@ -756,7 +756,7 @@ Every new voice address next MIDI channel"
    :doc "Decode the solution from the pmc (also works for Csolver) excluding predefined layers.
 
 <sol> is the solution from pmc (or Csolver).
-<tempo> is the tempo that the notation window (\“voice\” or \“poly\”) will use.
+<tempo> is the tempo that the notation window (\‚Äúvoice\‚Äù or \‚Äúpoly\‚Äù) will use.
 <output> is the format for the output of this box. You can either get a list 
 of poly-objects (each one representing one voice in the solution), or a list 
 of voice-objetcs (each one representing one rhythm layer in the solution), 
@@ -768,21 +768,21 @@ If the voice-list format is chosen, each voice will address a new MIDI channel.
 If the poly-list is chosen, each voice in a poly-box will address a new MIDI 
 channel. If no time signatures exist in the solution, 4/4 is used as default.
 --------------------------
-Avkoda lösningen från pmc (fungerar även med Csolver) utan fördefinierade skikt.
+Avkoda l√∂sningen fr√•n pmc (fungerar √§ven med Csolver) utan f√∂rdefinierade skikt.
 
-<sol> är lösningen från pmc (eller Csolver).
-<tempo> är det tempo som notationsfönstret (\“voice\” eller \“poly\”) kommer att 
-använda.
-<output> är det format man får resultatet i. Man kan antingen få en 
-lista med poly-objekt (där varje objekt representerar en stämma i lösningen), 
-eller en lista med voice-objekt (där varje objekt representerar ett rytmskikt 
-i lösningen), eller i \“simple format\” (med en sub-lista för varje stämma, 
-bestående av sub-listor för taktartssignaturer och varje rytm skikt). Välj 
-med hjälp at pop-up menyn.
+<sol> √§r l√∂sningen fr√•n pmc (eller Csolver).
+<tempo> √§r det tempo som notationsf√∂nstret (\‚Äúvoice\‚Äù eller \‚Äúpoly\‚Äù) kommer att 
+anv√§nda.
+<output> √§r det format man f√•r resultatet i. Man kan antingen f√• en 
+lista med poly-objekt (d√§r varje objekt representerar en st√§mma i l√∂sningen), 
+eller en lista med voice-objekt (d√§r varje objekt representerar ett rytmskikt 
+i l√∂sningen), eller i \‚Äúsimple format\‚Äù (med en sub-lista f√∂r varje st√§mma, 
+best√•ende av sub-listor f√∂r taktartssignaturer och varje rytm skikt). V√§lj 
+med hj√§lp at pop-up menyn.
 
-Om voice-list formatet är valt kommer varje ny voice adressera en ny MIDI kanal. 
-Om poly-list formatet är valt kommer varje ny voice i ett poly-objekt att 
-adressera en ny MIDI kanal. Om inga taktarter existerar i lösningen används 
+Om voice-list formatet √§r valt kommer varje ny voice adressera en ny MIDI kanal. 
+Om poly-list formatet √§r valt kommer varje ny voice i ett poly-objekt att 
+adressera en ny MIDI kanal. Om inga taktarter existerar i l√∂sningen anv√§nds 
 4/4-takt."
 
     :icon 366

@@ -600,7 +600,7 @@ Antalet variablar i lösningen definieras på Csolver (<n-ch>).
    
    :initvals '(1/16 1 nil nil )
    :indoc '("duration" "duration" "subdiv" "?")
-   :menuins ((3 (("yes" 't) ("no" 'nil) )))
+   :menuins '((3 (("yes" 't) ("no" 'nil) )))
    :doc ""
    :icon 389
    

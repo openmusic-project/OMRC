@@ -12,12 +12,11 @@
 ;;            update 1.4 December 2004      
 ;;            update 1.41 January 2005
 ;;            update 1.42 January 2019 : merge with Ircam updates
+;;            update 1.5 Sept. 2019 : merge with OM7 version
 ;;            
 ;--------------------------------------------------
-(defvar RC)
-(defpackage RC)
-(defpackage omcs)
-(in-package RC)
+
+(in-package om)
 
  
 ;--------------------------------------------------
@@ -26,6 +25,7 @@
 
 (mapc #'cl-user::compile&load 
       (list
+       (om::om-relative-path '("sources") "package")
        (om::om-relative-path '("sources") "Classes-and-vectors")
        (om::om-relative-path '("sources") "simple2tree")
        (om::om-relative-path '("sources") "tree2simple")
@@ -61,11 +61,11 @@
    ))
 
 
-(om::set-lib-release 1.42)
+(om::set-lib-release 1.5)
 
 (print "
 ;;;=========================================
-;;; OMRC 1.42
+;;; OMRC 1.5
 ;;; Rhythm Constraints library by O. Sandred
 ;;;=========================================
 ")

@@ -1,0 +1,75 @@
+;;;===========================================================================
+;;; Rhythm Constraints library
+;;;===========================================================================
+
+(:om-lib
+ 
+ (:version 1.5)
+
+ (:doc "Rhythm Constraints library")
+
+ (:author "O. Sandred")
+
+ ;;; SOURCE FILES TO LOAD
+ (:source-files 
+  "sources/package"
+  "sources/Classes-and-vectors"
+  "sources/simple2tree"
+  "sources/tree2simple"
+  "sources/Rules"
+  "sources/Build-domains"
+  "sources/decode"
+  "sources/measure-rules"
+  "sources/Access-and-lock-result"
+  "sources/Tools-user-rules"
+  "sources/Heuristic-rules"
+  "sources/RCUpdate"
+  "sources/markov-rule"
+  "sources/Kvantisering"
+ )
+ 
+ (:symbols
+  (:packages 
+
+   (:package 
+    (:name "Build domains") 
+    (:functions "rc::domains->pmc" "rc::voice-domain" "rc::preset-layer" "rc::preset-timesign" "rc::make-rhythm-domain"))
+  
+   (:package 
+    (:name "Decode solution") 
+    (:functions "rc::decode-engine" "rc::layer-in-solution" "rc::view-presets"))
+  
+   (:package 
+    (:name "Rules interface")
+    (:functions "rc::rules->pmc" "rc::heuristicrules->pmc"))
+   
+   (:package (:name "Rules") 
+      (:functions "rc::r-hierarchy" "rc::r-eqlength" "rc::r-layerorder" "rc::r-identical" "rc::r-beat-subdiv"
+                  "rc::r-sync-over-barline" "rc::r-pattern" "rc::r-canon" "rc::r-markov" 
+                  "rc::r-order-priority" "rc::gr-hierarchy" "rc::gr-eqlength" "rc::gr-layerorder" "rc::gr-identical" "rc::gr-canon")
+      (:packages 
+        (:package 
+          (:name "Quantize") 
+          (:functions "rc::r-quant" "rc::hr-quant_dev" "rc::hr-quant_ornaments"))))
+
+   (:package 
+    (:name "User rules tools") 
+    (:functions "rc::get-this-cell" "rc::get-this-cell-dur" "rc::get-last-cell" "rc::get-cell-before-last" "rc::get-cell-two-before-last" "rc::get-all-cells" 
+                "rc::get-cell-other-layer" "rc::get-cell-any-layer" "rc::get-rhythm-other-layer" "rc::get-rhythm-any-layer" "rc::get-all-cells-any-layer" 
+                "rc::get-time" "rc::get-layernumber" "rc::get-voicenumber" "rc::pause?" "rc::rhythmcell?" "rc::timesign?" "rc::test-equal" "rc::test-not-equal"))
+
+   (:package 
+    (:name "Lock sections") 
+    (:classes "rc::stored-section")
+    (:functions "rc::store-section" "rc::r-lock-to-stored" "rc::decode-stored-section"))
+  
+   (:package 
+    (:name "Formatting") 
+    (:functions "rc::simpleformat->tree" "rc::tree->simpleformat" "rc::rhythmdomain->voices"))
+   ))
+)
+
+
+
+
+

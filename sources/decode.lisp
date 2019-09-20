@@ -348,7 +348,7 @@
                       (loop for x from 0 to (1- (length rhythmlayers))
                             collect  (make-instance 'om::voice 
                                        :tempo tempo
-                                       :tree (simple->tree  (nth x rhythmlayers) time-signs)
+                                       :tree (simple->tree (nth x rhythmlayers) time-signs)
                                        :legato 99
                                        :chords (make-list (length (nth x rhythmlayers))
                                                           :initial-element
@@ -384,14 +384,14 @@
                            ;build rhythm trees and voices for each layer
                            (loop for x from 0 to (1- (length rhythmlayers))
                                  collect  (make-instance 'om::voice 
-                                            :tempo tempo
-                                            :tree (simple->tree  (nth x rhythmlayers) time-signs)
-                                            :legato 99
-                                            :chords (make-list (length (nth x rhythmlayers))
+                                                         :tempo tempo
+                                                         :tree (simple->tree  (nth x rhythmlayers) time-signs)
+                                                         :legato 99
+                                                         :chords (make-list (length (nth x rhythmlayers))
                                                                :initial-element
                                                                (make-instance 'om::chord
-                                                                 :LChan (list (+ (1+ x) (* voice (length rhythmlayers))))))
-                                            )))))))
+                                                                              :LChan (list (+ (1+ x) (* voice (length rhythmlayers))))))
+                                                         )))))))
 
 
 

@@ -101,16 +101,16 @@ calculating the second layer. This is defined as a note value (ratio).
 
 The rule also works with layer 0 (the time signatures).
 --------------------------
-Regel för att tvinga ett skikt i en stämma att kalkyleras före ett 
-annat skikt i samma stämma upp till en bestämd punkt. Därefter 
-fungerar regeln på samma sätt som r-eqlength.
+Regel f≈°r att tvinga ett skikt i en st≈†mma att kalkyleras f≈°re ett 
+annat skikt i samma st≈†mma upp till en best≈†md punkt. D≈†refter 
+fungerar regeln p≈í samma s≈†tt som r-eqlength.
 
-<layer1> är numret för skiktet som beräknas först.
-<layer2> är numret för skiktet som sedan beräknas.
-<endtime> är punkten dit det första skiktet ska ha nått innan 
-det andra skiktet börjar beräknas. Anges som notvärde (ratio).
+<layer1> ≈†r numret f≈°r skiktet som ber≈†knas f≈°rst.
+<layer2> ≈†r numret f≈°r skiktet som sedan ber≈†knas.
+<endtime> ≈†r punkten dit det f≈°rsta skiktet ska ha n≈ítt innan 
+det andra skiktet b≈°rjar ber≈†knas. Anges som notv≈†rde (ratio).
 
-Regeln fungerar också för skikt 0 (taktarterna).
+Regeln fungerar ocks≈í f≈°r skikt 0 (taktarterna).
  
 "
    
@@ -141,22 +141,22 @@ calculating the second layer. This is defined as a note value (ratio).
 
 The rule also works with layer 0 (the time signatures). 
 
-The rule has to be connected to the input for both layers on “rules->pmc”.
+The rule has to be connected to the input for both layers on √írules->pmc√ì.
 --------------------------
-Regel för att tvinga ett skikt i en stämma att kalkyleras före ett 
-annat skikt i en annan stämma upp till en bestämd punkt. Därefter 
-fungerar regeln på samma sätt som r-eqlength.
+Regel f≈°r att tvinga ett skikt i en st≈†mma att kalkyleras f≈°re ett 
+annat skikt i en annan st≈†mma upp till en best≈†md punkt. D≈†refter 
+fungerar regeln p≈í samma s≈†tt som r-eqlength.
 
-<layer1> är numret för skiktet som beräknas först.
-<voice1> är numret för stämman för skiktet som beräknas först.
-<layer2> är numret för skiktet som sedan beräknas.
-<voice2> är numret för stämman för skiktet som sedan beräknas.
-<endtime> är punkten dit det första skiktet ska ha nått innan 
-det andra skiktet börjar beräknas. Anges som notvärde (ratio).
+<layer1> ≈†r numret f≈°r skiktet som ber≈†knas f≈°rst.
+<voice1> ≈†r numret f≈°r st≈†mman f≈°r skiktet som ber≈†knas f≈°rst.
+<layer2> ≈†r numret f≈°r skiktet som sedan ber≈†knas.
+<voice2> ≈†r numret f≈°r st≈†mman f≈°r skiktet som sedan ber≈†knas.
+<endtime> ≈†r punkten dit det f≈°rsta skiktet ska ha n≈ítt innan 
+det andra skiktet b≈°rjar ber≈†knas. Anges som notv≈†rde (ratio).
 
-Regeln fungerar också för skikt 0 (taktarterna).
+Regeln fungerar ocks≈í f≈°r skikt 0 (taktarterna).
 
-Regeln måste kopplas till ingången för de båda skikten på “rules->pmc”.
+Regeln m≈íste kopplas till ing≈íngen f≈°r de b≈ída skikten p≈í √írules->pmc√ì.
 
 "
    
@@ -296,22 +296,22 @@ event at the first beat, or have the first event starting one eight note
 after the bar line (the first eight note in the measure is then slured from the 
 previous measure).
 --------------------------
-Regel för att kontrollera positionen för den första händelsen (not eller paus) 
-efter ett taktstreck, d.v.s. kontroll av synkoper över taktstreck.
+Regel f≈°r att kontrollera positionen f≈°r den f≈°rsta h≈†ndelsen (not eller paus) 
+efter ett taktstreck, d.v.s. kontroll av synkoper ≈°ver taktstreck.
 
-<rhythm-layer-nr> är numret på det rytmskikt som regeln gäller för.
-<allowed-syncopes> är en lista med möjliga positioner för den
-första händelsen efter ett taktstreck. De är definierade som
-en offset (notvärde som ett bråk) från taktstrecket.
-<special-case> är en popup meny där man kan välja om det är
-tillåtet att en takt inte har några händelser, d.v.s. att
-inga startpunkter för händelser inträffar i takten.
+<rhythm-layer-nr> ≈†r numret p≈í det rytmskikt som regeln g≈†ller f≈°r.
+<allowed-syncopes> ≈†r en lista med m≈°jliga positioner f≈°r den
+f≈°rsta h≈†ndelsen efter ett taktstreck. De ≈†r definierade som
+en offset (notv≈†rde som ett br≈ík) fr≈ín taktstrecket.
+<special-case> ≈†r en popup meny d≈†r man kan v≈†lja om det ≈†r
+till≈ítet att en takt inte har n≈ígra h≈†ndelser, d.v.s. att
+inga startpunkter f≈°r h≈†ndelser intr≈†ffar i takten.
 
-Ex: Om den andra ingången är '(0 1/8), och no-empty-measures är vald
-på tredje ingången, måste varje ny takt antingen starta med en ny
-händelse på första slaget, eller ha första händelsen en åttondelsnot 
-efter taktstrecket (den första åttondelsnoten är då överbunden från 
-föregående takt). 
+Ex: Om den andra ing≈íngen ≈†r '(0 1/8), och no-empty-measures ≈†r vald
+p≈í tredje ing≈íngen, m≈íste varje ny takt antingen starta med en ny
+h≈†ndelse p≈í f≈°rsta slaget, eller ha f≈°rsta h≈†ndelsen en ≈íttondelsnot 
+efter taktstrecket (den f≈°rsta ≈íttondelsnoten ≈†r d≈í ≈°verbunden fr≈ín 
+f≈°reg≈íende takt). 
 
 "
 
@@ -331,10 +331,10 @@ föregående takt).
 <x> is the current variable. It should be connected to the second 
 input inside a user rule patch.
 --------------------------
-Hämta \"voice\" numret för den aktuella instancierade variabeln.
+H≈†mta \"voice\" numret f≈°r den aktuella instancierade variabeln.
 
-<x> är den aktuella variabeln. Den ska ansutas till den andra ingången 
-inuti en patch för en användardefinierad regel.
+<x> ≈†r den aktuella variabeln. Den ska ansutas till den andra ing≈íngen 
+inuti en patch f≈°r en anv≈†ndardefinierad regel.
 "
    :icon 367
    
@@ -425,15 +425,15 @@ layer.
 
 
 --------------------------
-Regel för att bygga ett pattern.
+Regel f≈°r att bygga ett pattern.
 
-<layer> är numret på det rytmskikt som \"mönstret\" ska byggas.
-<nr-of-ev> är antalet rytmiska händelser (noter eller pauser) i mönstret.
-<duration> är mönstrets längd.
+<layer> ≈†r numret p≈í det rytmskikt som \"m≈°nstret\" ska byggas.
+<nr-of-ev> ≈†r antalet rytmiska h≈†ndelser (noter eller pauser) i m≈°nstret.
+<duration> ≈†r m≈°nstrets l≈†ngd.
 
-Ex: Om nr-of-ev är 4 och duration 1, så kommer ett mönster med
-den totala längden en helnot med 4 rytmhändelser att byggas
-(och upprepas i oändlighet) i skiktet.
+Ex: Om nr-of-ev ≈†r 4 och duration 1, s≈í kommer ett m≈°nster med
+den totala l≈†ngden en helnot med 4 rytmh≈†ndelser att byggas
+(och upprepas i o≈†ndlighet) i skiktet.
 
 "
 

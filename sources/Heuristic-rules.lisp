@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √òrjan Sandred, IRCAM 1999
 ;
 
 (in-package RC)
@@ -42,20 +42,20 @@
 <voice0> is a list of all heuristic rules for voice number 0 
 (can be expanded up to maximum voice number 6).
 
-A voice is identified by which entrance the box \“voice-domain\” 
-is connected to on the \“domains->pmc\” box. Heuristic rules must 
+A voice is identified by which entrance the box \√ívoice-domain\√ì 
+is connected to on the \√ídomains->pmc\√ì box. Heuristic rules must 
 be connected to the corresponding input on this box to be valid 
-for the voice. See also \“domains->pmc\”.
+for the voice. See also \√ídomains->pmc\√ì.
 --------------------------
-Formatera alla heuristiska regler för ingången <rules> på pmc.
+Formatera alla heuristiska regler f≈°r ing≈íngen <rules> p≈í pmc.
 
-<voice0> är en lista med alla heuristiska regler för stämma 
-nummer 0 (kan expanderas upp till maxiamlt stämma nummer 6).
+<voice0> ≈†r en lista med alla heuristiska regler f≈°r st≈†mma 
+nummer 0 (kan expanderas upp till maxiamlt st≈†mma nummer 6).
 
-En stämma identifieras utifrån vilken ingång \“voice-domain\” är 
-ansluten till på \“domains->pmc\”. Heuristiska regler måste vara 
-anslutna till motsvarande ingång på denna funktion för att gälla 
-för en stämma. Se också \“domains->pmc\”.
+En st≈†mma identifieras utifr≈ín vilken ing≈íng \√ívoice-domain\√ì ≈†r 
+ansluten till p≈í \√ídomains->pmc\√ì. Heuristiska regler m≈íste vara 
+anslutna till motsvarande ing≈íng p≈í denna funktion f≈°r att g≈†lla 
+f≈°r en st≈†mma. Se ocks≈í \√ídomains->pmc\√ì.
 "
   :icon 375
 

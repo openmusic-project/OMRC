@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √òrjan Sandred, IRCAM 1999
 ;
 
 (in-package RC)
@@ -68,20 +68,20 @@ measures with time signatures that have for example eight-note as the beat lengt
 every beat length has to be defined separately (in pairs of <betvalue> and 
 <subdiv>). 
 --------------------------
-Regel för att kontrollera underdelningarna av pulsslag i takter.
+Regel f≈°r att kontrollera underdelningarna av pulsslag i takter.
 
-<rhythm-layer-nr> är numret på det rytmskikt som regeln gäller för.
-<beatvalue1> och <subdiv1> hör ihop i par (kan expanderas upp till maximalt 5 
-par). <subdiv1> är en lista av möjliga underdelningar av ett pulsslag i en 
-takt. <beatvalue1> är längden på pulsslaget (d.v.s. den undre siffran i 
+<rhythm-layer-nr> ≈†r numret p≈í det rytmskikt som regeln g≈†ller f≈°r.
+<beatvalue1> och <subdiv1> h≈°r ihop i par (kan expanderas upp till maximalt 5 
+par). <subdiv1> ≈†r en lista av m≈°jliga underdelningar av ett pulsslag i en 
+takt. <beatvalue1> ≈†r l≈†ngden p≈í pulsslaget (d.v.s. den undre siffran i 
 taktartssignaturen) som avses. 
 
 Exempel: Om <beatvalue1> = 4 anger <subdiv1> hur pulsslagen i en taktart med 
-pulsvärdet en fjärdedelsnot (t.ex. 4//4, 3//4) kan underdelas. Om 
+pulsv≈†rdet en fj≈†rdedelsnot (t.ex. 4//4, 3//4) kan underdelas. Om 
 <subdiv1> = (1 2 3 4 5) betyder det att pulsslaget kan underdelas ner till 
-maximalt en kvintol, dock endast om denna hamnar på slaget (d.v.s. inte som 
-synkop). I exemplet påverkar inte denna regel takter med taktarter som har 
-t.ex. åttondelsnot som pulsvärde; varje pulsvärde måste definieras separat 
+maximalt en kvintol, dock endast om denna hamnar p≈í slaget (d.v.s. inte som 
+synkop). I exemplet p≈íverkar inte denna regel takter med taktarter som har 
+t.ex. ≈íttondelsnot som pulsv≈†rde; varje pulsv≈†rde m≈íste definieras separat 
 (i par om <beatvalue> och <subdiv>).
 "
   :icon 354

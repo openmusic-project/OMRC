@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by …rjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by Ã˜rjan Sandred, IRCAM 1999
 ;
 
 
@@ -224,15 +224,15 @@ If a list of time signatures is given, this sequence will be used.
 If only one time signature is given, this will be used as many times 
 as needed to notate the sequence.
 --------------------------
-Konvertera en lista av notvŠrden till ett hierarkiskt rytmtrŠd.
+Konvertera en lista av notv_rden till ett hierarkiskt rytmtr_d.
 
-<rhythm> Šr en lista av notvŠrden som brŒk.
-<timesigns> Šr antingen en lista av taktartssignaturer, eller en 
+<rhythm> _r en lista av notv_rden som br_k.
+<timesigns> _r antingen en lista av taktartssignaturer, eller en 
 taktartssignatur.
 
-Om en lista av taktartssignaturer ges kommer denna sekvens at anvŠndas. 
-Om endast en taktartssignatur ges kommer denna att anvŠndas sŒ mŒnga 
-gŒnger som behšvs fšr att notera sekvensen.
+Om en lista av taktartssignaturer ges kommer denna sekvens at anv_ndas. 
+Om endast en taktartssignatur ges kommer denna att anv_ndas s_ m_nga 
+g_nger som beh_vs f_r att notera sekvensen.
 "
   :icon 351
   

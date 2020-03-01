@@ -1,5 +1,5 @@
 ;****************************
-;Rhythm Constraints library version 1.0 by Örjan Sandred, IRCAM 1999
+;Rhythm Constraints library version 1.0 by √òrjan Sandred, IRCAM 1999
 ;
 ;Update version 1.3 19/8 2002 (Stockholm)
 ;
@@ -1113,14 +1113,14 @@ The rule will only accept a cell for the for the moment shortest
 layer as the next cell in the solution. Also works with layer 0 
 (the time signatures).
 --------------------------
-Regel för att tvinga två skikt i en stämma att vara av så lika längd 
-som möjligt.
+Regel f≈°r att tvinga tv≈í skikt i en st≈†mma att vara av s≈í lika l≈†ngd 
+som m≈°jligt.
 
-<layer1> är numret för ett av skikten.
-<layer2> är numret för det andra skiktet.
+<layer1> ≈†r numret f≈°r ett av skikten.
+<layer2> ≈†r numret f≈°r det andra skiktet.
 
-Regeln accepterar endast en cell för det för tillfället kortaste 
-skiktet som nästa cell i lösningen. Fungerar också för skikt 0 
+Regeln accepterar endast en cell f≈°r det f≈°r tillf≈†llet kortaste 
+skiktet som n≈†sta cell i l≈°sningen. Fungerar ocks≈í f≈°r skikt 0 
 (taktarterna).
 "
 
@@ -1146,21 +1146,21 @@ The rule will only accept a cell for the for the moment shortest
 layer as the next cell in the solution. Also works with layer 0 
 (the time signatures).
 
-The rule has to be connected to the input for both layers on \“rules->pmc\”.
+The rule has to be connected to the input for both layers on \√írules->pmc\√ì.
 --------------------------
-Regel för att tvinga två skikt i olika stämmor att vara av så lika längd 
-som möjligt.
+Regel f≈°r att tvinga tv≈í skikt i olika st≈†mmor att vara av s≈í lika l≈†ngd 
+som m≈°jligt.
 
-<layer1> är numret för det första skiktet.
-<voice1> är numret på stämman för det första skiktet.
-<layer2> är numret för det andra skiktet.
-<voice2> är numret på stämman för det andra skiktet.
+<layer1> ≈†r numret f≈°r det f≈°rsta skiktet.
+<voice1> ≈†r numret p≈í st≈†mman f≈°r det f≈°rsta skiktet.
+<layer2> ≈†r numret f≈°r det andra skiktet.
+<voice2> ≈†r numret p≈í st≈†mman f≈°r det andra skiktet.
 
-Regeln accepterar endast en cell för det för tillfället kortaste 
-skiktet som nästa cell i lösningen. Fungerar också för skikt 0 
+Regeln accepterar endast en cell f≈°r det f≈°r tillf≈†llet kortaste 
+skiktet som n≈†sta cell i l≈°sningen. Fungerar ocks≈í f≈°r skikt 0 
 (taktarterna).
 
-Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
+Regeln m≈íste kopplas till ing≈íngen f≈°r de b≈ída skikten p≈í \√írules->pmc\√ì.
 "
    :icon 352
    
@@ -1178,40 +1178,40 @@ Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
 <layerhigh> is the layer number for the higher layer in the hierarchy.
 <layerlow> is the layer number for the lower layer in the hierarchy.
 <mode> indicates if the hierarchy accepts any event in the lower layer 
-(\“normal\”), or only starting points for the rhythm cells in the 
-lower layer (\“cell-starts\”).
+(\√ínormal\√ì), or only starting points for the rhythm cells in the 
+lower layer (\√ícell-starts\√ì).
 
 The rule creates a hierarchical structure for events, where the higher 
-layer only contains the events of \“high importance\” (higher up in this 
+layer only contains the events of \√íhigh importance\√ì (higher up in this 
 structure) from the lower layer. Thus all starting points for events in 
 the higher layer must exist in the lower layer. The lower layer might 
 include events with starting points between starting points in the higher 
 layer (= events of less importance).
 
-\“Cell-start\” mode is a stricter rule. Here the starting points in the 
+\√íCell-start\√ì mode is a stricter rule. Here the starting points in the 
 higher layer has to occur at starting points for a whole cell in the 
 lower layer (i.e. it is not enough that any event in the lower layer 
 occur simultaneously as events in the higher layer).
 --------------------------
-Regel för att skapa en hierarkisk koppling mellan två skikt i en stämma.
+Regel f≈°r att skapa en hierarkisk koppling mellan tv≈í skikt i en st≈†mma.
 
-<layerhigh> är numret för det högre skiktet i hierarkin.
-<layerlow> är numret för det lägre skiktet i hierarkin.
-<mode> indikerar om hierarkin gäller för vilken som helst av händelserna 
-i det lägre skiktet (\“normal\”) eller endast accepterar startpunkter för 
-rytmcellerna i det lägre skiktet (\“cell-starts\”).
+<layerhigh> ≈†r numret f≈°r det h≈°gre skiktet i hierarkin.
+<layerlow> ≈†r numret f≈°r det l≈†gre skiktet i hierarkin.
+<mode> indikerar om hierarkin g≈†ller f≈°r vilken som helst av h≈†ndelserna 
+i det l≈†gre skiktet (\√ínormal\√ì) eller endast accepterar startpunkter f≈°r 
+rytmcellerna i det l≈†gre skiktet (\√ícell-starts\√ì).
 
-Regeln skapar en hierarkisk struktur för händelser, där det högre skiktet 
-endast innehåller händelser av \“stor vikt\” (högre upp i hierarkin) från det 
-lägre skiktet. Sålunda måste alla händelsers startpunkter i det högre skiktet 
-existera i det lägre skiktet. Det lägre skiktet kan inkludera händelser med 
-startpunkt mellan startpunkterna i det högre skiktet (= händelsr av mindre 
+Regeln skapar en hierarkisk struktur f≈°r h≈†ndelser, d≈†r det h≈°gre skiktet 
+endast inneh≈íller h≈†ndelser av \√ístor vikt\√ì (h≈°gre upp i hierarkin) fr≈ín det 
+l≈†gre skiktet. S≈ílunda m≈íste alla h≈†ndelsers startpunkter i det h≈°gre skiktet 
+existera i det l≈†gre skiktet. Det l≈†gre skiktet kan inkludera h≈†ndelser med 
+startpunkt mellan startpunkterna i det h≈°gre skiktet (= h≈†ndelsr av mindre 
 vikt).
 
-\“Cell-start\” mode är en striktare regel. Här måste starttiderna i det högre 
-skiktet inträffa på en starttid för en hel cell i det lägre skiktet (d.v.s. 
-det räcker inte att vilken händelse som helst i det lägre skiktet inträffar 
-samtidigt som händelserna i det högre skiktet).
+\√íCell-start\√ì mode ≈†r en striktare regel. H≈†r m≈íste starttiderna i det h≈°gre 
+skiktet intr≈†ffa p≈í en starttid f≈°r en hel cell i det l≈†gre skiktet (d.v.s. 
+det r≈†cker inte att vilken h≈†ndelse som helst i det l≈†gre skiktet intr≈†ffar 
+samtidigt som h≈†ndelserna i det h≈°gre skiktet).
 "
    :icon 355
    
@@ -1239,46 +1239,46 @@ samtidigt som händelserna i det högre skiktet).
 <layerlow> is the layer number for the lower layer in the hierarchy.
 <voicelow> is the voice number for the lower layer in the hierarchy.
 <mode> indicates if the hierarchy accepts any event in the lower layer 
-(\“normal\”), or only starting points for the rhythm cells in the 
-lower layer (\“cell-starts\”).
+(\√ínormal\√ì), or only starting points for the rhythm cells in the 
+lower layer (\√ícell-starts\√ì).
 
 The rule creates a hierarchical structure for events, where the higher 
-layer only contains the events of \“high importance\” (higher up in this 
+layer only contains the events of \√íhigh importance\√ì (higher up in this 
 structure) from the lower layer. Thus all starting points for events in 
 the higher layer must exist in the lower layer. The lower layer might 
 include events with starting points between starting points in the higher 
 layer (= events of less importance).
 
-\“Cell-start\” mode is a stricter rule. Here the starting points in the 
+\√íCell-start\√ì mode is a stricter rule. Here the starting points in the 
 higher layer has to occur at starting points for a whole cell in the 
 lower layer (i.e. it is not enough that any event in the lower layer 
 occur simultaneously as events in the higher layer).
 
-The rule has to be connected to the input for both layers on \“rules->pmc\”.
+The rule has to be connected to the input for both layers on \√írules->pmc\√ì.
 --------------------------
-Regel för att skapa en hierarkisk koppling mellan två skikt i olika stämmor.
+Regel f≈°r att skapa en hierarkisk koppling mellan tv≈í skikt i olika st≈†mmor.
 
-<layerhigh> är numret för det högre skiktet i hierarkin.
-<voicehigh> är numret på stämman för det högre skiktet i hierarkin.
-<layerlow> är numret för det lägre skiktet i hierarkin.
-<voicelow> är numret på stämman för det lägre skiktet i hierarkin.
-<mode> indikerar om hierarkin gäller för vilken som helst av händelserna 
-i det lägre skiktet (\“normal\”) eller endast accepterar startpunkter för 
-rytmcellerna i det lägre skiktet (\“cell-starts\”).
+<layerhigh> ≈†r numret f≈°r det h≈°gre skiktet i hierarkin.
+<voicehigh> ≈†r numret p≈í st≈†mman f≈°r det h≈°gre skiktet i hierarkin.
+<layerlow> ≈†r numret f≈°r det l≈†gre skiktet i hierarkin.
+<voicelow> ≈†r numret p≈í st≈†mman f≈°r det l≈†gre skiktet i hierarkin.
+<mode> indikerar om hierarkin g≈†ller f≈°r vilken som helst av h≈†ndelserna 
+i det l≈†gre skiktet (\√ínormal\√ì) eller endast accepterar startpunkter f≈°r 
+rytmcellerna i det l≈†gre skiktet (\√ícell-starts\√ì).
 
-Regeln skapar en hierarkisk struktur för händelser, där det högre skiktet 
-endast innehåller händelser av \“stor vikt\” (högre upp i hierarkin) från det 
-lägre skiktet. Sålunda måste alla händelsers startpunkter i det högre skiktet 
-existera i det lägre skiktet. Det lägre skiktet kan inkludera händelser med 
-startpunkt mellan startpunkterna i det högre skiktet (= händelsr av mindre 
+Regeln skapar en hierarkisk struktur f≈°r h≈†ndelser, d≈†r det h≈°gre skiktet 
+endast inneh≈íller h≈†ndelser av \√ístor vikt\√ì (h≈°gre upp i hierarkin) fr≈ín det 
+l≈†gre skiktet. S≈ílunda m≈íste alla h≈†ndelsers startpunkter i det h≈°gre skiktet 
+existera i det l≈†gre skiktet. Det l≈†gre skiktet kan inkludera h≈†ndelser med 
+startpunkt mellan startpunkterna i det h≈°gre skiktet (= h≈†ndelsr av mindre 
 vikt).
 
-\“Cell-start\” mode är en striktare regel. Här måste starttiderna i det högre 
-skiktet inträffa på en starttid för en hel cell i det lägre skiktet (d.v.s. 
-det räcker inte att vilken händelse som helst i det lägre skiktet inträffar 
-samtidigt som händelserna i det högre skiktet).
+\√íCell-start\√ì mode ≈†r en striktare regel. H≈†r m≈íste starttiderna i det h≈°gre 
+skiktet intr≈†ffa p≈í en starttid f≈°r en hel cell i det l≈†gre skiktet (d.v.s. 
+det r≈†cker inte att vilken h≈†ndelse som helst i det l≈†gre skiktet intr≈†ffar 
+samtidigt som h≈†ndelserna i det h≈°gre skiktet).
 
-Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
+Regeln m≈íste kopplas till ing≈íngen f≈°r de b≈ída skikten p≈í \√írules->pmc\√ì.
 "
    :icon 355
    
@@ -1299,10 +1299,10 @@ Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
 <layer1> is the layer number for one of the layers.
 <layer2> is the layer number for the other layer.
 --------------------------
-Regel för att tvinga två skikt i samma stämma att vara identiska.
+Regel f≈°r att tvinga tv≈í skikt i samma st≈†mma att vara identiska.
 
-<layer1> är numret för ett av skikten.
-<layer2> är numret för det andra skiktet.
+<layer1> ≈†r numret f≈°r ett av skikten.
+<layer2> ≈†r numret f≈°r det andra skiktet.
 "
    :icon 355
    
@@ -1323,16 +1323,16 @@ Regel för att tvinga två skikt i samma stämma att vara identiska.
 <layer2> is the layer number for the second layer.
 <voice2> is the voice number for the second layer.
 
-The rule has to be connected to the input for both layers on \“rules->pmc\”.
+The rule has to be connected to the input for both layers on \√írules->pmc\√ì.
 --------------------------
-Regel för att tvinga två skikt i olika stämmor att vara identiska.
+Regel f≈°r att tvinga tv≈í skikt i olika st≈†mmor att vara identiska.
 
-<layer1> är numret för det första skiktet.
-<voice1> är numret på stämman för det första skiktet.
-<layer2> är numret för det andra skiktet.
-<voice2> är numret på stämman för det andra skiktet.
+<layer1> ≈†r numret f≈°r det f≈°rsta skiktet.
+<voice1> ≈†r numret p≈í st≈†mman f≈°r det f≈°rsta skiktet.
+<layer2> ≈†r numret f≈°r det andra skiktet.
+<voice2> ≈†r numret p≈í st≈†mman f≈°r det andra skiktet.
 
-Regeln måste kopplas till ingången för de båda skikten på \“rules->pmc\”.
+Regeln m≈íste kopplas till ing≈íngen f≈°r de b≈ída skikten p≈í \√írules->pmc\√ì.
 "
    :icon 355
    
@@ -1355,18 +1355,18 @@ solutions that otherwise would have been possible.
 are layer numbers. They indicate what order (from left to right) the engine 
 should look at the layers when searching for a solution.
 --------------------------
-Regel för att tvinga sökmotorn att titta på skikten i en specificerad 
-ordning när den söker efter en lösningen.
+Regel f≈°r att tvinga s≈°kmotorn att titta p≈í skikten i en specificerad 
+ordning n≈†r den s≈°ker efter en l≈°sningen.
 
-Denna regel är experimentell. Den kan snabba upp sökprocessen (eller göra 
-den långsammare om den är använd felaktigt). Den kan också hjälpa till 
-att hitta en speciell lösning genom att ge prioritet till vissa skikt. 
-VARNING: Regeln kan förbjuda lösningar som annars skulle vara möjliga.
+Denna regel ≈†r experimentell. Den kan snabba upp s≈°kprocessen (eller g≈°ra 
+den l≈íngsammare om den ≈†r anv≈†nd felaktigt). Den kan ocks≈í hj≈†lpa till 
+att hitta en speciell l≈°sning genom att ge prioritet till vissa skikt. 
+VARNING: Regeln kan f≈°rbjuda l≈°sningar som annars skulle vara m≈°jliga.
 
 <layer1> och <layer2> (alternativt kan upp till maximum fem skikt 
-specificeras) är nummer på skikt. De indikerar vilken ordning (från 
-vänster till höger) sökmotorn ska titta på dem då den söker efter en 
-lösning.
+specificeras) ≈†r nummer p≈í skikt. De indikerar vilken ordning (fr≈ín 
+v≈†nster till h≈°ger) s≈°kmotorn ska titta p≈í dem d≈í den s≈°ker efter en 
+l≈°sning.
 "
   :icon 352
 
@@ -1401,21 +1401,21 @@ r-eqlength might give no answer, since the dux does not exist when
 comes is built. Use the r-layerorder instead of r-eqlength.
 
 
-The layers have to be in the same voice (compare with \“gr-canon\”).
+The layers have to be in the same voice (compare with \√ígr-canon\√ì).
 --------------------------
-Regel för att skapa en rytmisk kanon.
+Regel f≈°r att skapa en rytmisk kanon.
 
-<layercomes> är  numret för det skikt som ska imitera orginalrytmen.
-<layerdux> är numret för skiktet där orginalrytmen finns.
-<voicedux> är numret för stämman där orginalrytmen finns.
-<offset> är avståndet i tid (notvärde, angivet som ett bråk) mellan 
+<layercomes> ≈†r  numret f≈°r det skikt som ska imitera orginalrytmen.
+<layerdux> ≈†r numret f≈°r skiktet d≈†r orginalrytmen finns.
+<voicedux> ≈†r numret f≈°r st≈†mman d≈†r orginalrytmen finns.
+<offset> ≈†r avst≈índet i tid (notv≈†rde, angivet som ett br≈ík) mellan 
 orginalrytmen och imitationen.
-<tempo> är en faktor för att skala notvärdena i svaret (comes).
-VARNING! Om en tempofaktor mindre än 1 används i kombination med regeln
-r-eqlength kan det hända att inget svar att hittas, då dux inte existerar
-när comes byggs. Använd r-layerorder istället för r-eqlength.
+<tempo> ≈†r en faktor f≈°r att skala notv≈†rdena i svaret (comes).
+VARNING! Om en tempofaktor mindre ≈†n 1 anv≈†nds i kombination med regeln
+r-eqlength kan det h≈†nda att inget svar att hittas, d≈í dux inte existerar
+n≈†r comes byggs. Anv≈†nd r-layerorder ist≈†llet f≈°r r-eqlength.
 
-Skikten måste vara i samma stämma (jmfr \“gr-canon\”).
+Skikten m≈íste vara i samma st≈†mma (jmfr \√ígr-canon\√ì).
 "
    :icon 355
    
@@ -1445,24 +1445,24 @@ WARNING! To use tempo-factors smaller than 1 in combination with the rule
 r-eqlength might give no answer, since the dux does not exist when
 comes is built. Use the r-layerorder instead of r-eqlength.
 
-The layers can be in different voices (compare with \“r-canon\”). The rule 
+The layers can be in different voices (compare with \√ír-canon\√ì). The rule 
 should be connected to the voice where the imitation is (not the voice 
 for the original rhythm).
 --------------------------
-Regel för att skapa en rytmisk kanon.
+Regel f≈°r att skapa en rytmisk kanon.
 
-<layercomes> är  numret för det skikt som ska imitera orginalrytmen.
-<layerdux> är numret för skiktet där orginalrytmen finns.
-<voicedux> är numret för stämman där orginalrytmen finns.
-<offset> är avståndet i tid (notvärde, angivet som ett bråk) mellan 
+<layercomes> ≈†r  numret f≈°r det skikt som ska imitera orginalrytmen.
+<layerdux> ≈†r numret f≈°r skiktet d≈†r orginalrytmen finns.
+<voicedux> ≈†r numret f≈°r st≈†mman d≈†r orginalrytmen finns.
+<offset> ≈†r avst≈índet i tid (notv≈†rde, angivet som ett br≈ík) mellan 
 orginalrytmen och imitationen.
-<tempo> är en faktor för att skala notvärdena i svaret (comes).
-VARNING! Om en tempofaktor mindre än 1 används i kombination med regeln
-r-eqlength kan det hända att inget svar att hittas, då dux inte existerar
-när comes byggs. Använd r-layerorder istället för r-eqlength.
+<tempo> ≈†r en faktor f≈°r att skala notv≈†rdena i svaret (comes).
+VARNING! Om en tempofaktor mindre ≈†n 1 anv≈†nds i kombination med regeln
+r-eqlength kan det h≈†nda att inget svar att hittas, d≈í dux inte existerar
+n≈†r comes byggs. Anv≈†nd r-layerorder ist≈†llet f≈°r r-eqlength.
 
-Skikten kan vara i olika stämmor (jmfr \“r-canon\”). Regeln ska kopplas 
-till den stämma där imitationen finns (inte stämman där orginalrytmen 
+Skikten kan vara i olika st≈†mmor (jmfr \√ír-canon\√ì). Regeln ska kopplas 
+till den st≈†mma d≈†r imitationen finns (inte st≈†mman d≈†r orginalrytmen 
 finns).
 "
    :icon 355
@@ -1482,20 +1482,20 @@ finns).
 <voice0> is a list of all rules for voice number 0 (can be expanded 
 up to maximum voice number 6).
 
-A voice is identified by which entrance the box \“voice-domain\” 
-is connected to on the \“domains->csolver\” box. Rules must be connected 
+A voice is identified by which entrance the box \√ívoice-domain\√ì 
+is connected to on the \√ídomains->csolver\√ì box. Rules must be connected 
 to the corresponding input on this box to be valid for the voice. 
-See also \“domains->csolver\”.
+See also \√ídomains->csolver\√ì.
 --------------------------
-Formatera alla regler för ingången <cnstr> på Csolver.
+Formatera alla regler f≈°r ing≈íngen <cnstr> p≈í Csolver.
 
-<voice0> är en lista med alla regler för stämma nummer 0 (kan 
-expanderas upp till maxiamlt stämma nummer 6).
+<voice0> ≈†r en lista med alla regler f≈°r st≈†mma nummer 0 (kan 
+expanderas upp till maxiamlt st≈†mma nummer 6).
 
-En stämma identifieras utifrån vilken ingång \“voice-domain\” är 
-ansluten till på \“domains->csolver\”. Regler måste vara anslutna till 
-motsvarande ingång på denna funktion för att gälla för en stämma. 
-Se också \“domains->csolver\”.
+En st≈†mma identifieras utifr≈ín vilken ing≈íng \√ívoice-domain\√ì ≈†r 
+ansluten till p≈í \√ídomains->csolver\√ì. Regler m≈íste vara anslutna till 
+motsvarande ing≈íng p≈í denna funktion f≈°r att g≈†lla f≈°r en st≈†mma. 
+Se ocks≈í \√ídomains->csolver\√ì.
 "
   :icon 365
 
@@ -1513,20 +1513,20 @@ Se också \“domains->csolver\”.
 <voice0> is a list of all rules for voice number 0 (can be expanded 
 up to maximum voice number 6).
 
-A voice is identified by which entrance the box \“voice-domain\” 
-is connected to on the \“domains->pmc\” box. Rules must be connected 
+A voice is identified by which entrance the box \√ívoice-domain\√ì 
+is connected to on the \√ídomains->pmc\√ì box. Rules must be connected 
 to the corresponding input on this box to be valid for the voice. 
-See also \“domains->pmc\”.
+See also \√ídomains->pmc\√ì.
 --------------------------
-Formatera alla regler för ingången <rules> på pmc.
+Formatera alla regler f≈°r ing≈íngen <rules> p≈í pmc.
 
-<voice0> är en lista med alla regler för stämma nummer 0 (kan 
-expanderas upp till maxiamlt stämma nummer 6).
+<voice0> ≈†r en lista med alla regler f≈°r st≈†mma nummer 0 (kan 
+expanderas upp till maxiamlt st≈†mma nummer 6).
 
-En stämma identifieras utifrån vilken ingång \“voice-domain\” är 
-ansluten till på \“domains->pmc\”. Regler måste vara anslutna till 
-motsvarande ingång på denna funktion för att gälla för en stämma. 
-Se också \“domains->pmc\”.
+En st≈†mma identifieras utifr≈ín vilken ing≈íng \√ívoice-domain\√ì ≈†r 
+ansluten till p≈í \√ídomains->pmc\√ì. Regler m≈íste vara anslutna till 
+motsvarande ing≈íng p≈í denna funktion f≈°r att g≈†lla f≈°r en st≈†mma. 
+Se ocks≈í \√ídomains->pmc\√ì.
 "
   :icon 375
 

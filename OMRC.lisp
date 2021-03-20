@@ -48,16 +48,15 @@
 ;--------------------------------------------------
 (om::fill-library 
  '(
-   ("01-build domains" nil nil (domains->pmc voice-domain preset-layer preset-timesign make-rhythm-domain) nil)
-   ("02-decode solution" nil nil (decode-engine layer-in-solution view-presets) nil)
-   ("03a-rules interface" nil nil (rules->pmc heuristicrules->pmc) nil)
-   ("03b-rules" (("QUANTIZE" nil nil (r-quant hr-quant_dev hr-quant_ornaments) nil)) nil (r-hierarchy r-eqlength r-layerorder r-identical r-beat-subdiv r-sync-over-barline r-pattern r-canon r-markov 
-                                                                                                      r-order-priority gr-hierarchy gr-eqlength gr-layerorder gr-identical gr-canon) nil)
-   ("04-user rules tools" nil nil (get-this-cell get-this-cell-dur get-last-cell get-cell-before-last get-cell-two-before-last get-all-cells 
-                                                 get-cell-other-layer get-cell-any-layer get-rhythm-other-layer get-rhythm-any-layer get-all-cells-any-layer 
-                                                 get-time get-layernumber get-voicenumber pause? rhythmcell? timesign? test-equal test-not-equal) nil)
-   ("05-lock sections" nil (stored-section) (store-section r-lock-to-stored decode-stored-section) nil)
-   ("06-formating" nil nil (simpleformat->tree tree->simpleformat rhythmdomain->voices) nil)
+   ("01-build domains" nil nil (rc::domains->pmc rc::voice-domain rc::preset-layer rc::preset-timesign rc::make-rhythm-domain) nil)
+   ("02-decode solution" nil nil (rc::decode-engine rc::layer-in-solution rc::view-presets) nil)
+   ("03a-rules interface" nil nil (rc::rules->pmc rc::heuristicrules->pmc) nil)
+   ("03b-rules" (("QUANTIZE" nil nil (rc::r-quant rc::hr-quant_dev rc::hr-quant_ornaments) nil)) nil (rc::r-hierarchy rc::r-eqlength rc::r-layerorder rc::r-identical rc::r-beat-subdiv rc::r-sync-over-barline rc::r-pattern rc::r-canon rc::r-markov rc::r-order-priority rc::gr-hierarchy rc::gr-eqlength rc::gr-layerorder rc::gr-identical rc::gr-canon) nil)
+   ("04-user rules tools" nil nil (rc::get-this-cell rc::get-this-cell-dur rc::get-last-cell rc::get-cell-before-last rc::get-cell-two-before-last rc::get-all-cells 
+                                                 rc::get-cell-other-layer rc::get-cell-any-layer rc::get-rhythm-other-layer rc::get-rhythm-any-layer rc::get-all-cells-any-layer 
+                                                 rc::get-time get-layernumber rc::get-voicenumber rc::pause? rc::rhythmcell? rc::timesign? rc::test-equal rc::test-not-equal) nil)
+   ("05-lock sections" nil (rc::stored-section) (rc::store-section rc::r-lock-to-stored rc::decode-stored-section) nil)
+   ("06-formating" nil nil (rc::simpleformat->tree rc::tree->simpleformat rc::rhythmdomain->voices) nil)
    ))
 
 

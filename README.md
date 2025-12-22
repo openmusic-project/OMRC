@@ -3,6 +3,13 @@ A Rhythm Constraints library for OpenMusic
 
 By Örjan Sandred,  © IRCAM 1999 (version 1.1), Stockholm 2002 (version 1.3-...)
 
+#### Documentation:
+
+See the OMRC user manual (2000): [OMRC_v1.1.pdf](https://openmusic-project.github.io/openmusic/doc/om-libraries/OMRC_v1.1.pdf)
+
+and
+
+the OMRC tutorials: [OMRC_Tutorials_1.1.pdf](https://openmusic-project.github.io/openmusic/doc/om-libraries/OMRC_Tutorials_1.1.pdf) 
 
 -------
 
